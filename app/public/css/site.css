@@ -3,33 +3,40 @@
   /* background-color: rgb(255,230,230); */
 }
 
-.queueView {
-  border: 2px black solid;
-  background-color: rgb(230,230,230);
+.navbar{
+  color:orange;
 }
 
-.patientWaiting {
-  background-color: white;
-  margin: 6px;
-  padding: 6px;
-  border: 2px solid rgb(200,200,200);
+.nav-link{
+  color:orange;
+  font-size: 22px;
+  padding-left: 25px;
 }
 
-.patientName {
-  font-weight: bold;
+#left{
+
+  text-align: center;
+}
+#middle{
+  text-align: center;
 }
 
-.highPriority {
-  border-left-color: red;
-  border-left-width: 6px;
+.container{
+  width: 100%;
 }
 
-.mediumPriority {
-  border-left-color: orange;
-  border-left-width: 6px;
+#firemanView{
+  height: 100%;
+  background-color: darkGray;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#viewButton{
 }
 
-.lowPriority {
-  border-left-color: blue;
-  border-left-width: 6px;
+#memberInfo{
+  background-color: darkgray;
+}
+#memberCerts{
+  background-color: gray;
 }

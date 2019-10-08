@@ -14,18 +14,14 @@
 </nav>
 
 <body>
+  <h1> Oconee County Fire Rescue </h1>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-1" id="left">
-      </div>
-      <div class="col-10" id="middle">
-        <h1> Oconee County Fire Rescue </h1>
+      <div class="col-7" id="middle">
         <br>
         <div id="certList">
           <h3> Tracked Certifications </h3>
           <ul class="list-group">
-
-
 
           <li class="list-group-item d-flex justify-content-between" id="certView"> <h2 style="width: 10%;"> CPR </h2>
             <p style="width: 80%;"> Cardiopulmonary resuscitation training is mandatory for all members to ensure victims can be treated immediately. </p>
@@ -39,13 +35,39 @@
             <p style="width: 80%;"> smokeyBear.jpg </p>
              <a href="./viewCert.html"> <button type="button" class="btn btn-dark" id="viewButton">View Report</button> </a>
            </li>
-
-
         </ul>
-
           </div>
       </div>
-      <div class="col-1" id="right">
+      <div class="col-5" id="certRight">
+        <br>
+        <div id="addCert">
+        <h3> Add a certification </h3>
+
+        <form action="/action_page.php">
+
+        <div class="row">
+        <div class="col-3">Certification:</div>
+        <div class="col-2"><input type="text" name="cert" value="John"></div>
+      </div>
+
+        <div class="row">
+        <div class="col-3">Description:</div>
+        <div class="col-2"><textarea rows = "5" cols= "25" name="description">Enter a brief certification description
+         </textarea></div>
+      </div>
+
+        <div class="row">
+        <div class="col-3">Agency:</div>
+        <div class="col-2"><input type="text" name="badge" value="123123"></div>
+      </div>
+
+      <br>
+         <input class="btn-dark" type="submit" value="Add certification">
+       </form>
+       <br>
+
+        <div>
+        </div>
       </div>
     </div>
   </div>

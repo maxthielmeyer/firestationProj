@@ -32,6 +32,7 @@
   margin-bottom: 5px;
 }
 #viewButton{
+  height: 100%;
 }
 
 #memberInfo{
@@ -39,4 +40,13 @@
 }
 #memberCerts{
   background-color: gray;
+}
+#certList{
+  outline-style: solid;
+  text-align: center;
+  background-color: darkGray;
+}
+#certView{
+  background-color: darkGray;
+
 }

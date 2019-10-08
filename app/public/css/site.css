@@ -48,5 +48,8 @@
 }
 #certView{
   background-color: darkGray;
-
+}
+.custom-select{
+  margin-right: 15px;
+  margin-bottom: 15px;
 }

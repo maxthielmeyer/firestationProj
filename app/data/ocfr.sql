@@ -1,40 +1,36 @@
-USE Firestation;
-
-CREATE TABLE Certificate (
-    cName VARCHAR(64) PRIMARY KEY,
-    cAgency VARCHAR(64),
-    standardExp DATE DEFAULT NULL
-);
-
+USE firestation_person;
 
 CREATE TABLE Person (
-    personId INTEGER PRIMARY KEY AUTO_INCREMENT,
-    stationNumber VARCHAR(64) UNIQUE,
-    gender CHAR(1),
-    DOB DATE Default NULL,
-    address VARCHAR(64),
-    email VARCHAR(64),
-    firstName VARCHAR(64),
-    lastName VARCHAR(64),
-    isActive VARCHAR(3)
+    personId VARCHAR(64) PRIMARY KEY,
+    stationNumber INT NOT NULL,
+    gender CHAR(1) DEFAULT '',
+    DOB DATE DEFAULT NULL,
+    address TEXT NOT NULL,
+    email VARCHAR(320),
+    firstName VARCHAR(20) NOT NULL,
+    lastName VARCHAR(20) NOT NULL,
+    isActive BOOLEAN
 );
-
-
-CREATE TABLE User_Certification (
-    personId INTEGER FOREIGN KEY AUTO_INCREMENT,
-    cName VARCHAR(64) FOREIGN KEY,
-    expDate DATE DEFAULT NULL,
-    renewedDate DATE DEFAULT NULL
-);
-
 
 CREATE TABLE Phone (
-    personId INTEGER FOREIGN KEY AUTO_INCREMENT,
-    phone VARCHAR(64)
+	phone VARCHAR(12) PRIMARY KEY,
+    FOREIGN KEY (personID) REFERENCES Person(personID)
 );
 
+CREATE TABLE RadioNo(
+	radioNumber VARCHAR(20) PRIMARY KEY,
+    FOREIGN KEY (personID) REFERENCES Person(personID)
+);
 
-CREATE TABLE RadioNO (
-    personId INTEGER FOREIGN KEY AUTO_INCREMENT,
-    radioNumber VARCHAR(64)
+CREATE TABLE User_Certification(
+	expDate DATE DEFAULT NULL,
+    renewedDate DATE DEFAULT NULL,
+	FOREIGN KEY (personID) REFERENCES Person(personID),
+	FOREIGN KEY (cName) REFERENCES Certificate(cName)
+);
+
+CREATE TABLE Certificate(
+	cName VARCHAR(64) PRIMARY KEY,
+    cAgency VARCHAR(64),
+    standardExp DATE NOT NULL
 );

@@ -1,5 +1,6 @@
-USE firestation_person;
+USE person;
 
+--run
 CREATE TABLE Person (
     personId VARCHAR(64) PRIMARY KEY,
     stationNumber INT NOT NULL,
@@ -9,26 +10,39 @@ CREATE TABLE Person (
     email VARCHAR(320),
     firstName VARCHAR(20) NOT NULL,
     lastName VARCHAR(20) NOT NULL,
-    isActive BOOLEAN
+    isActive BOOLEAN,
+    radioNum INT(10)
 );
 
+--run
+--note phone->phoneNum
+--add type? 
 CREATE TABLE Phone (
-	phone VARCHAR(12) PRIMARY KEY,
-    FOREIGN KEY (personID) REFERENCES Person(personID)
+	  phoneNum VARCHAR(12) PRIMARY KEY,
+    personId VARCHAR(64) NOT NULL,
+    FOREIGN KEY (personId) REFERENCES Person(personId)
 );
 
-CREATE TABLE RadioNo(
-	radioNumber VARCHAR(20) PRIMARY KEY,
-    FOREIGN KEY (personID) REFERENCES Person(personID)
-);
 
+-- -- multiple radio nums?
+-- CREATE TABLE RadioNo(
+-- 	  radioNumber VARCHAR(20) PRIMARY KEY,
+--     personId VARCHAR(64) NOT NULL,
+--     FOREIGN KEY (personID) REFERENCES Person(personID)
+-- );
+
+--run
 CREATE TABLE User_Certification(
 	expDate DATE DEFAULT NULL,
     renewedDate DATE DEFAULT NULL,
+    cName VARCHAR(64),
+    personId VARCHAR(64) NOT NULL,
 	FOREIGN KEY (personID) REFERENCES Person(personID),
 	FOREIGN KEY (cName) REFERENCES Certificate(cName)
 );
 
+
+--run
 CREATE TABLE Certificate(
 	cName VARCHAR(64) PRIMARY KEY,
     cAgency VARCHAR(64),

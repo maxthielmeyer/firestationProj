@@ -26,10 +26,7 @@
         </div>
         <h3> Active members </h3>
         <ul class="list-group">
-        <li class="list-group-item d-flex justify-content-between" id="firemanView"> <h1> Burning Man Adnan </h1> <a href="./viewMember.html"> <button type="button" class="btn btn-dark" id="viewButton">View</button> </a></li>
-        <li class="list-group-item d-flex justify-content-between" id="firemanView"> <h1> Firewoman Grace </h1> <a href="./viewMember.html"> <button type="button" class="btn btn-dark" id="viewButton">View</button> </a></li>
-        <li class="list-group-item d-flex justify-content-between" id="firemanView"> <h1> Fireman Zac </h1> <a href="./viewMember.html"> <button type="button" class="btn btn-dark" id="viewButton">View</button> </a></li>
-
+        <li class="list-group-item d-flex justify-content-between" id="firemanView" v-for="person in persons"> <h1> {{person.firstName}} {{person.lastName}} </h1> <a href="./viewMember.html"> <button type="button" class="btn btn-dark" id="viewButton">View</button> </a></li>
       </ul>
       </div>
       <div class="col-1" id="right">
@@ -40,8 +37,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="js/waiting.app.js"></script>
-  <script src="js/record.app.js"></script>
-  <script src="js/triage.app.js"></script>
+  <script src="js/personRecords.app.js"></script>
 </body>
 </html>

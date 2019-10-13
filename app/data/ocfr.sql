@@ -48,3 +48,7 @@ CREATE TABLE Certificate(
     cAgency VARCHAR(64),
     standardExp DATE NOT NULL
 );
+
+--insert
+INSERT INTO Person (stationNumber,radioNum,gender,DOB,address,email,firstName,lastName,isActive)
+VALUES (83242,12,"F",1995-12-4,"2359 W 4 St","zacattack@gmail.com","James","Bond",0);

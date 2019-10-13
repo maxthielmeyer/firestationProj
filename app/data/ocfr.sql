@@ -2,7 +2,7 @@ USE person;
 
 --run
 CREATE TABLE Person (
-    personId VARCHAR(64) PRIMARY KEY,
+    personId INT PRIMARY KEY AUTO_INCREMENT,
     stationNumber INT NOT NULL,
     gender CHAR(1) DEFAULT '',
     DOB DATE DEFAULT NULL,
@@ -16,10 +16,10 @@ CREATE TABLE Person (
 
 --run
 --note phone->phoneNum
---add type? 
+--add type?
 CREATE TABLE Phone (
 	  phoneNum VARCHAR(12) PRIMARY KEY,
-    personId VARCHAR(64) NOT NULL,
+    personId INT NOT NULL,
     FOREIGN KEY (personId) REFERENCES Person(personId)
 );
 
@@ -36,7 +36,7 @@ CREATE TABLE User_Certification(
 	expDate DATE DEFAULT NULL,
     renewedDate DATE DEFAULT NULL,
     cName VARCHAR(64),
-    personId VARCHAR(64) NOT NULL,
+    personId INT NOT NULL,
 	FOREIGN KEY (personID) REFERENCES Person(personID),
 	FOREIGN KEY (cName) REFERENCES Certificate(cName)
 );
@@ -48,3 +48,7 @@ CREATE TABLE Certificate(
     cAgency VARCHAR(64),
     standardExp DATE NOT NULL
 );
+
+--insert
+INSERT INTO Person (stationNumber,radioNum,gender,DOB,address,email,firstName,lastName,isActive)
+VALUES (83242,12,"F",1995-12-4,"2359 W 4 St","zacattack@gmail.com","James","Bond",0);

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>My Page Title</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="css/site.css">
 </head>
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
@@ -26,20 +26,17 @@
         </div>
         <h3> Active members </h3>
         <ul class="list-group">
-        <li class="list-group-item d-flex justify-content-between" id="firemanView"> <h1> Burning Man Adnan </h1> <a href="./viewMember.html"> <button type="button" class="btn btn-dark" id="viewButton">View</button> </a></li>
-        <li class="list-group-item d-flex justify-content-between" id="firemanView"> <h1> Firewoman Grace </h1> <a href="./viewMember.html"> <button type="button" class="btn btn-dark" id="viewButton">View</button> </a></li>
-        <li class="list-group-item d-flex justify-content-between" id="firemanView"> <h1> Fireman Zac </h1> <a href="./viewMember.html"> <button type="button" class="btn btn-dark" id="viewButton">View</button> </a></li>
-
+        <li class="list-group-item d-flex justify-content-between" id="firemanView" v-for="person in persons"> <h1> {{person.firstName}} {{person.lastName}} </h1> <a href="./viewMember.html"> <button type="button" class="btn btn-dark" id="viewButton">View</button> </a></li>
       </ul>
       </div>
       <div class="col-1" id="right">
       </div>
     </div>
   </div>
-
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="js/waiting.app.js"></script>
-  <script src="js/record.app.js"></script>
-  <script src="js/triage.app.js"></script>
+  <script src="js/personRecords.app.js"></script>
 </body>
 </html>

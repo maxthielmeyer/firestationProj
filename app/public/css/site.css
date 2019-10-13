@@ -34,6 +34,7 @@
 #viewButton{
   height: 100%;
   color: orange;
+  width:100%;
 }
 
 #memberInfo{
@@ -54,23 +55,22 @@
   margin-right: 15px;
   margin-bottom: 15px;
 }
+
+/* To do: add JS function to match tracked and add heights*/
 #addCert{
   text-align: center;
   background-color: lightgray;
+  border:solid;
+  max-width: 500px;
 }
 
 body, html {
     height: 100%;
 }
 
-
 .hero-image {
-
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/firefighter.jpg");
-
   height: 100%;
-
-
   background-position: center 60%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -88,4 +88,39 @@ body, html {
   border-top: solid;
   border-bottom: solid;
 
+}
+
+.form-control{
+  border:solid;
+  border-width:thin;
+  width:90%;
+  display:inline;
+}
+
+#submit{
+  border-radius:8px;
+  margin-top:5%;
+}
+
+#addTitle{
+
+}
+.list-group h2{
+  text-align:left;
+}
+
+.list-group p{
+  text-align: left;
+  padding-left:5%;
+  padding-right:5%;
+}
+
+.list-group li{
+display:flex;
+justify-content:space-around;
+justify-content:space-between;
+border-bottom:solid;
+border-bottom-width:thin;
+padding-bottom:5%;
+padding-top:5%;
 }

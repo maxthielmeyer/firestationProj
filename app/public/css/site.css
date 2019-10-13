@@ -2,15 +2,25 @@
   /* border: 1px red solid; */
   /* background-color: rgb(255,230,230); */
 }
-
 .navbar{
   color:orange;
 }
 
+.navtitle{
+  padding-right:3%;
+}
 .nav-link{
   color:orange;
   font-size: 22px;
   padding-left: 25px;
+  position:relative;
+}
+
+#active{
+  background-color:orange;
+  color:black;
+  background-position: center;
+  text-align: center;
 }
 
 #left{
@@ -54,6 +64,11 @@
 .custom-select{
   margin-right: 15px;
   margin-bottom: 15px;
+  width:auto;
+}
+
+#certReporttbl{
+  width:100%;
 }
 
 /* To do: add JS function to match tracked and add heights*/
@@ -97,12 +112,21 @@ body, html {
   display:inline;
 }
 
+.form-group label{
+font-family:sans-serif;
+font-weight: bold;
+font-style:italic;
+text-align: center;
+font-size:120%;
+}
+
 #submit{
   border-radius:8px;
   margin-top:5%;
 }
 
 #addTitle{
+padding-bottom:8%;
 
 }
 .list-group h2{

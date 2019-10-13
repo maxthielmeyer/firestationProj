@@ -7,10 +7,10 @@
   <link rel="stylesheet" href="css/site.css">
 </head>
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-  <h1> OCFR </h1>
+  <h1 class="navtitle"> OCFR </h1>
   <a class="nav-link" href="./index.html">Members</a>
   <a class="nav-link" href="./certs.html">Certifications</a>
-  <a class="nav-link" href="./reports.html">Reports</a>
+  <a class="nav-link" id="active" href="./reports.html">Reports</a>
 </nav>
 
 <body>
@@ -24,14 +24,14 @@
 
         <form action="/action_page.php">
           Certification
-        <select class="custom-select" style="width:auto; margin-right:15px;">
+        <select class="custom-select">
         <option value="CPR">CPR</option>
         <option value="FireRescue">Fire Rescue</option>
         <option value="FirstAid">FirstAid</option>
         <option value="all">All</option>
       </select>
           View
-        <select class="custom-select" style="width:auto">
+        <select class="custom-select">
         <option value="valid">Valid</option>
         <option value="expired">Expired</option>
         <option value="all">All</option>
@@ -48,7 +48,7 @@
     <div class="col-8">
       <p> Certification Information Station Creation Ideation goes here </p>
 
-      <table style="width:100%">
+      <table id="certReporttbl">
        <tr>
          <th>Name</th>
          <th>Badge Number</th>

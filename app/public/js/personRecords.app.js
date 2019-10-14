@@ -11,10 +11,8 @@ var personRecordsApp = new Vue({
       .then(json => { personRecordsApp.persons = json; this.setActivePersons()});
     },
     setActivePersons(){
-      console.log(this.persons.length);
-      for(var person in this.persons){
-        if(person.isActive == 1){
-          console.log(person);
+      for(var person of this.persons){
+        if(person.isActive){
           this.activePersons.push(person);
         }
       }

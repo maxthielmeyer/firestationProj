@@ -8,7 +8,7 @@ var personRecordsApp = new Vue({
     fetchPersons() {
       fetch('api/records/')
       .then(response => response.json())
-      .then(json => { personRecordsApp.persons = json });
+      .then(json => { personRecordsApp.persons = json; this.setActivePersons()});
     },
     setActivePersons(){
       console.log(this.persons.length);

@@ -49,10 +49,12 @@
 
 #memberInfo{
   background-color: darkgray;
-  text-align: center;
+  text-align:center;
 }
 #memberCerts{
   background-color: gray;
+  width:100%;
+  text-align: center;
 }
 #certList{
   outline-style: solid;
@@ -95,7 +97,12 @@ border:solid;
 }
 
 #reportHeader{
-  text-decoration: underline;
+  font-style:italic;
+  text-align: center;
+}
+
+#holdTbl{
+  text-align: left;
 }
 
 /* To do: add JS function to match tracked and add heights*/

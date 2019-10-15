@@ -7,10 +7,10 @@
   <link rel="stylesheet" href="css/site.css">
 </head>
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-  <h1> OCFR </h1>
+  <h1 class="navtitle"> OCFR </h1>
   <a class="nav-link" href="./index.html">Members</a>
   <a class="nav-link" href="./certs.html">Certifications</a>
-  <a class="nav-link" href="./reports.html">Reports</a>
+  <a class="nav-link" id="active" href="./reports.html">Reports</a>
 </nav>
 
 <body>
@@ -19,66 +19,72 @@
       <div class="col-2">
       </div>
       <div class="col-8" id="memberInfo">
-        <h1> <u>Certification Reports </u> </h1>
+        <h1 id="reportHeader"> Certification Reports </h1>
         <p> View information about who holds a specific certification.</p>
 
         <form action="/action_page.php">
           Certification
-        <select class="custom-select" style="width:auto; margin-right:15px;">
-        <option value="CPR">CPR</option>
-        <option value="FireRescue">Fire Rescue</option>
-        <option value="FirstAid">FirstAid</option>
-        <option value="all">All</option>
-      </select>
+          <select class="custom-select">
+            <option value="CPR">CPR</option>
+            <option value="FireRescue">Fire Rescue</option>
+            <option value="FirstAid">FirstAid</option>
+            <option value="all">All</option>
+          </select>
           View
-        <select class="custom-select" style="width:auto">
-        <option value="valid">Valid</option>
-        <option value="expired">Expired</option>
-        <option value="all">All</option>
-      </select>
-       <input type="submit" value="Run" class="btn-dark">
-    </form>
+          <select class="custom-select">
+            <option value="valid">Valid</option>
+            <option value="expired">Expired</option>
+            <option value="all">All</option>
+          </select>
+          <input type="submit" value="Run" class="btn-dark">
+        </form>
       </div>
       <div class="col-2">
       </div>
-  </div>
-  <div class="row">
-    <div class="col-2">
     </div>
-    <div class="col-8">
-      <p> Certification Information Station Creation Ideation goes here </p>
+    <div class="row">
+      <div class="col-2">
+      </div>
+      <div class="col-8">
+        <p> Certification Information Station Creation Ideation goes here </p>
 
-      <table style="width:100%">
-       <tr>
-         <th>Name</th>
-         <th>Badge Number</th>
-         <th>Expiry Date</th>
-         <th>Status</th>
-       </tr>
-       <tr>
-         <td>Toddrick Rickson</td>
-         <td>123123</td>
-         <td>1/1/2024</td>
-         <td>Valid</td>
-       </tr>
-       <tr>
-         <td>Greg Gregson</td>
-         <td>331312</td>
-         <td>1/1/2014</td>
-         <td>Expired</td>
-       <tr>
-         <td>John Johnson</td>
-         <td>334232</td>
-         <td>1/1/2014</td>
-         <td>Expired</td>
-       </tr>
-      </table>
+        <table id="certReporttbl">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Badge Number</th>
+              <th>Expiration Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Toddrick Rickson</td>
+              <td>123123</td>
+              <td>1/1/2024</td>
+              <td>Valid</td>
+            </tr>
+            <tr>
+              <td>Greg Gregson</td>
+              <td>331312</td>
+              <td>1/1/2014</td>
+              <td>Expired</td>
+            </tr>
+            <tr>
+              <td>John Johnson</td>
+              <td>334232</td>
+              <td>1/1/2014</td>
+              <td>Expired</td>
+            </tr>
+          </tbody>
 
-    </div>
-    <div class="col-2">
+        </table>
+
+      </div>
+      <div class="col-2">
+      </div>
     </div>
   </div>
-</div>
 
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

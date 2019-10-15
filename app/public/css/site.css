@@ -2,15 +2,25 @@
   /* border: 1px red solid; */
   /* background-color: rgb(255,230,230); */
 }
-
 .navbar{
   color:orange;
 }
 
+.navtitle{
+  padding-right:3%;
+}
 .nav-link{
   color:orange;
   font-size: 22px;
   padding-left: 25px;
+  position:relative;
+}
+
+#active{
+  background-color:orange;
+  color:black;
+  background-position: center;
+  text-align: center;
 }
 
 #left{
@@ -34,13 +44,17 @@
 #viewButton{
   height: 100%;
   color: orange;
+  width:100%;
 }
 
 #memberInfo{
   background-color: darkgray;
+  text-align:center;
 }
 #memberCerts{
   background-color: gray;
+  width:100%;
+  text-align: center;
 }
 #certList{
   outline-style: solid;
@@ -53,24 +67,59 @@
 .custom-select{
   margin-right: 15px;
   margin-bottom: 15px;
+  width:auto;
 }
+
+#certReporttbl th{
+border:solid #ddd;
+border-bottom:double #aaa;
+text-align:left;
+font-weight:500;
+font-style:italic;
+}
+#certReporttbl td{
+text-align:left;
+border:solid #ddd;
+border-bottom: solid #ddd;
+font-family:monospace;
+}
+#certReporttbl tr{
+text-align:left;
+border:solid;
+}
+
+#certReporttbl tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+#certReporttbl{
+  width:100%;
+}
+
+#reportHeader{
+  font-style:italic;
+  text-align: center;
+}
+
+#holdTbl{
+  text-align: left;
+}
+
+/* To do: add JS function to match tracked and add heights*/
 #addCert{
   text-align: center;
   background-color: lightgray;
+  border:solid;
+  max-width: 500px;
 }
 
 body, html {
     height: 100%;
 }
 
-
 .hero-image {
-
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/firefighter.jpg");
-
   height: 100%;
-
-
   background-position: center 60%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -88,4 +137,48 @@ body, html {
   border-top: solid;
   border-bottom: solid;
 
+}
+
+.form-control{
+  border:solid;
+  border-width:thin;
+  width:90%;
+  display:inline;
+}
+
+.form-group label{
+font-family:sans-serif;
+font-weight: bold;
+font-style:italic;
+text-align: center;
+font-size:120%;
+}
+
+#submit{
+  border-radius:8px;
+  margin-top:5%;
+}
+
+#addTitle{
+padding-bottom:8%;
+
+}
+.list-group h2{
+  text-align:left;
+}
+
+.list-group p{
+  text-align: left;
+  padding-left:5%;
+  padding-right:5%;
+}
+
+.list-group li{
+display:flex;
+justify-content:space-around;
+justify-content:space-between;
+border-bottom:solid;
+border-bottom-width:thin;
+padding-bottom:5%;
+padding-top:5%;
 }

@@ -1,94 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>My Page Title</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/site.css">
-</head>
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">
-  <h1> OCFR </h1>
-  <a class="nav-link" href="./index.html">Members</a>
-  <a class="nav-link" href="./certs.html">Certifications</a>
-  <a class="nav-link" href="./reports.html">Reports</a>
-</nav>
+  <head>
+    <meta charset="utf-8">
+    <title>My Page Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/site.css">
+  </head>
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <h1> OCFR </h1>
+    <a class="nav-link" href="./index.html">Members</a>
+    <a class="nav-link" href="./certs.html">Certifications</a>
+    <a class="nav-link" href="./reports.html">Reports</a>
+  </nav>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
 
-<body>
-  <div class="container-fluid">
-    <div class="row">
+        <div class="col-6" id="memberInfo">
+          <h1> <u> Member Name Here</u> </h1>
+          <form action="/action_page.php">
 
-      <div class="col-6" id="memberInfo">
-        <h1> <u> Member Name Here</u> </h1>
-        <form action="/action_page.php">
+            <div class="row">
+              <div class="col-3">First name:</div>
+              <div class="col-2"><input type="text" name="fname" :value="currentPerson.firstName"></div>
+            </div>
 
-        <div class="row">
-        <div class="col-3">First name:</div>
-        <div class="col-2"><input type="text" name="fname" value="John"></div>
-      </div>
+            <div class="row">
+              <div class="col-3"> Last name:</div>
+              <div class="col-2"><input type="text" name="lname" :value="currentPerson.lastName"></div>
+            </div>
 
-        <div class="row">
-        <div class="col-3"> Last name:</div>
-        <div class="col-2"><input type="text" name="lname" value="Johnson"></div>
-      </div>
+            <div class="row">
+              <div class="col-3"> Radio Num:</div>
+              <div class="col-2"><input type="text" name="radioNum" :value="currentPerson.radioNum"></div>
+            </div>
+            <div class="row">
+              <div class="col-3"> Email:</div>
+              <div class="col-2"><input type="text" name="email" :value="currentPerson.email"></div>
+            </div>
+            <div class="row">
+              <div class="col-3"> DOB: </div>
+              <div class="col-2"><input type="date" name="DOB" :value="currentPerson.DOB"></div>
+            </div>
+            <div class="row">
+              <div class="col-3"> Gender: </div>
+              <div class="col-2"><input type="text" name="gender" :value="currentPerson.gender"></div>
+            </div>
+            <div class="row">
+              <div class="col-3"> Address: </div>
+              <div class="col-2"><input type="text" name="address" :value="currentPerson.address"></div>
+            </div>
+            <div class="row">
+              <div class="col-3"> Station Number: </div>
+              <div class="col-2"><input type="text" name="stationNumber" :value="currentPerson.stationNumber"></div>
+            </div>
+            <br>
+            <input class="btn-dark" type="submit" value="Submit changes">
+          </form>
+          <br>
+          <br>
+          <form action="/deleteMember.php">
+            <input class="btn-danger" type="submit" value="Delete Member Record">
+          </form>
+        </div>
 
-        <div class="row">
-        <div class="col-3"> Badge Num:</div>
-        <div class="col-2"><input type="text" name="badge" value="123123"></div>
-      </div>
+        <div class="col-6" id="memberCerts">
+          <h1> <u> Certifications </u></h1>
+          <table style="width:100%">
+            <tr>
+              <th>Certification</th>
+              <th>Issued</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>CPR</td>
+              <td>1/1/2014</td>
+              <td>Valid</td>
+            </tr>
+            <tr>
+              <td>Safe Climbing</td>
+              <td>12/14/1990</td>
+              <td>Expired</td>
+            </tr>
+          </table>
+          <br>
+          <br>
+          <h2> Add certification </h2>
+          <form>
+            <div class="form-group">
+              <label for="certDateInput">Date Issued</label>
+              <input type="date" class="form-control" id="certDateInput" style="width:auto">
+            </div>
+            <label for="certTypeInput">Certification</label>
+            <br>
+            <select class="custom-select" style="width:auto; margin-right:15px;">
+              <option value="CPR">CPR</option>
+              <option value="FireRescue">Fire Rescue</option>
+              <option value="FirstAid">FirstAid</option>
+              <option value="all">All</option>
+            </select>
+            <input class="btn-dark" type="submit" value="Add">
+          </div>
+        </div>
 
-        <div class="row">
-        <div class="col-3"> Address: </div>
-        <div class="col-2"><input type="text" name="address" value="123 Ez St"></div>
-      </div>
-      <br>
-         <input class="btn-dark" type="submit" value="Submit changes">
-       </form>
-       <br>
-       <br>
-     <form action="/deleteMember.php">
-         <input class="btn-danger" type="submit" value="Delete Member Record">
-     </form>
-  </div>
-
-  <div class="col-6" id="memberCerts">
-  <h1> <u> Certifications </u></h1>
-  <table style="width:100%">
-   <tr>
-     <th>Certification</th>
-     <th>Issued</th>
-     <th>Status</th>
-   </tr>
-   <tr>
-     <td>CPR</td>
-     <td>1/1/2014</td>
-     <td>Valid</td>
-   </tr>
-   <tr>
-     <td>Safe Climbing</td>
-     <td>12/14/1990</td>
-     <td>Expired</td>
-   </tr>
- </table>
- <br>
- <br>
- <h2> Add certification </h2>
-<form>
-<div class="form-group">
-  <label for="certDateInput">Date Issued</label>
-  <input type="date" class="form-control" id="certDateInput" style="width:auto">
-</div>
-<label for="certTypeInput">Certification</label>
-<br>
-  <select class="custom-select" style="width:auto; margin-right:15px;">
-  <option value="CPR">CPR</option>
-  <option value="FireRescue">Fire Rescue</option>
-  <option value="FirstAid">FirstAid</option>
-  <option value="all">All</option>
-  </select>
-<input class="btn-dark" type="submit" value="Add">
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-</body>
-</html>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="js/memberDetails.app.js"></script>
+    </body>
+  </html>

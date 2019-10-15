@@ -8,13 +8,12 @@ var personRecordsApp = new Vue({
     fetchPersons() {
       fetch('api/records/')
       .then(response => response.json())
-      .then(json => { personRecordsApp.persons = json });
+      .then(json => { personRecordsApp.persons = json; this.setActivePersons()});
     },
     setActivePersons(){
-      console.log(this.persons.length);
-      for(var person in this.persons){
-        if(person.isActive == 1){
-          console.log(person);
+      
+      for(var person of this.persons){
+        if(person.isActive){
           this.activePersons.push(person);
         }
       }

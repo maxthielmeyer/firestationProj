@@ -49,6 +49,7 @@
 
 #memberInfo{
   background-color: darkgray;
+  text-align: center;
 }
 #memberCerts{
   background-color: gray;
@@ -67,8 +68,34 @@
   width:auto;
 }
 
+#certReporttbl th{
+border:solid #ddd;
+border-bottom:double #aaa;
+text-align:left;
+font-weight:500;
+font-style:italic;
+}
+#certReporttbl td{
+text-align:left;
+border:solid #ddd;
+border-bottom: solid #ddd;
+font-family:monospace;
+}
+#certReporttbl tr{
+text-align:left;
+border:solid;
+}
+
+#certReporttbl tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
 #certReporttbl{
   width:100%;
+}
+
+#reportHeader{
+  text-decoration: underline;
 }
 
 /* To do: add JS function to match tracked and add heights*/

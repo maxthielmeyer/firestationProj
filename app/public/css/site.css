@@ -56,6 +56,7 @@
   width:100%;
   text-align: center;
 }
+
 #certList{
   outline-style: solid;
   text-align: center;
@@ -96,7 +97,7 @@ border:solid;
   width:100%;
 }
 
-#reportHeader{
+#tableHead{
   font-style:italic;
   text-align: center;
 }
@@ -113,6 +114,15 @@ border:solid;
   max-width: 500px;
 }
 
+#certDateInput{
+   width:auto;
+}
+
+#label{
+  font-weight: bold;
+  font-size: 100%;
+  color:black;
+}
 body, html {
     height: 100%;
 }

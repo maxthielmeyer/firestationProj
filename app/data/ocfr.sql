@@ -50,11 +50,11 @@ CREATE TABLE Certificate(
 );
 
 --insert
-INSERT INTO Person (personID,stationNumber,radioNum,gender,DOB,address,email,firstName,lastName,isActive)
+INSERT INTO Person (stationNumber,radioNum,gender,DOB,address,email,firstName,lastName,isActive)
 VALUES
-(83242,13,12,"F",1995-12-4,"2359 W 4 St","zacattack@gmail.com","James","Bond",0),
-(77398,33,11,"M",1996-10-3,"8989 N 2nd Rd", "fireman2@gmail.com","Tom","Gregory",1),
-(09090,13,10,"F",1988-9-2,"1989 Quintard","fireman3@gmail.com","Bipin","Prabhakar",1);
+(83242,12,"F",1995-12-4,"2359 W 4 St","zacattack@gmail.com","James","Bond",0),
+(77398,11,"M",1996-10-3,"8989 N 2nd Rd", "fireman2@gmail.com","Tom","Gregory",1),
+(09090,10,"F",1988-9-2,"1989 Quintard","fireman3@gmail.com","Bipin","Prabhakar",1);
 
 INSERT INTO Certificate (cName,cAgency,expDate)
 VALUES
@@ -62,8 +62,8 @@ VALUES
 ("Fireman Level 2", "Bloomington South Firestation", 2029-09-09),
 ("Fireman Level 3", "Indianapolis Firestation", 2030-03-04);
 
-INSERT INTO Phone (phoneNum,personID)
+INSERT INTO Phone (phoneNum)
 VALUES
-("931-636-9371",83242),
-("900-988-3847",77398),
-("383-383-8989",09090);
+("931-636-9371"),
+("900-988-3847"),
+("383-383-8989");

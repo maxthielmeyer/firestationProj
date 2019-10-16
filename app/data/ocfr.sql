@@ -54,7 +54,7 @@ INSERT INTO Person (stationNumber,radioNum,gender,DOB,address,email,firstName,la
 VALUES
 (83242,12,"F",1995-12-4,"2359 W 4 St","zacattack@gmail.com","James","Bond",0),
 (77398,11,"M",1996-10-3,"8989 N 2nd Rd", "fireman2@gmail.com","Tom","Gregory",1),
-(09090,10,"F",1988-9-2,"1989 Quintard","fireman3@gmail.com","Bipin","Prabhakar",1);
+(09090,10,"M",1988-9-2,"1989 Quintard","fireman3@gmail.com","Bipin","Prabhakar",1);
 
 INSERT INTO Certificate (cName,cAgency,expDate)
 VALUES

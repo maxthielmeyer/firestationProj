@@ -46,12 +46,24 @@ CREATE TABLE User_Certification(
 CREATE TABLE Certificate(
 	cName VARCHAR(64) PRIMARY KEY,
     cAgency VARCHAR(64),
-    standardExp DATE NOT NULL
+    expDate DATE DEFAULT NOT NULL
 );
 
 --insert
-INSERT INTO Person (stationNumber,radioNum,gender,DOB,address,email,firstName,lastName,isActive)
+INSERT INTO Person (personID,stationNumber,radioNum,gender,DOB,address,email,firstName,lastName,isActive)
 VALUES
-(83242,12,"F",1995-12-4,"2359 W 4 St","zacattack@gmail.com","James","Bond",0),
-(99990,11,"M",1986-5-16,"290 Quintard Rd","sewanee@gmail.com","Bipin","Prabhakar",1)
-(80290,10,"F",1976-2-3,"1101 N Fee Ln","mcnutt@gmail.com","McNutt","Mold",0);
+(83242,13,12,"F",1995-12-4,"2359 W 4 St","zacattack@gmail.com","James","Bond",0),
+(77398,33,11,"M",1996-10-3,"8989 N 2nd Rd", "fireman2@gmail.com","Tom","Gregory",1),
+(09090,13,10,"F",1988-9-2,"1989 Quintard","fireman3@gmail.com","Bipin","Prabhakar",1);
+
+INSERT INTO Certificate (cName,cAgency,expDate)
+VALUES
+("Fireman Level 1","Bloomington Firestation",2020-05-16),
+("Fireman Level 2", "Bloomington South Firestation", 2029-09-09),
+("Fireman Level 3", "Indianapolis Firestation", 2030-03-04);
+
+INSERT INTO Phone (phoneNum,personID)
+VALUES
+("931-636-9371",83242),
+("900-988-3847",77398),
+("383-383-8989",09090);

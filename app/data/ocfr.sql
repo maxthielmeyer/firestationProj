@@ -51,4 +51,7 @@ CREATE TABLE Certificate(
 
 --insert
 INSERT INTO Person (stationNumber,radioNum,gender,DOB,address,email,firstName,lastName,isActive)
-VALUES (83242,12,"F",1995-12-4,"2359 W 4 St","zacattack@gmail.com","James","Bond",0);
+VALUES
+(83242,12,"F",1995-12-4,"2359 W 4 St","zacattack@gmail.com","James","Bond",0),
+(99990,11,"M",1986-5-16,"290 Quintard Rd","sewanee@gmail.com","Bipin","Prabhakar",1)
+(80290,10,"F",1976-2-3,"1101 N Fee Ln","mcnutt@gmail.com","McNutt","Mold",0);

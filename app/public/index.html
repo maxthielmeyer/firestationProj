@@ -28,7 +28,7 @@
       <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between" id="firemanView" v-for="person in activePersons"> <h3> {{person.firstName}} {{person.lastName}} </h3> <a :href="'./viewMember?id='+person.personId"> <button type="button" class="btn btn-dark" id="viewButton">View</button> </a></li>
       </ul>
-        <h3> All members </h3>
+        <h3> Inactive members </h3>
       <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between" id="firemanView" v-for="person in inactivePersons"> <h3> {{person.firstName}} {{person.lastName}} </h3> <a :href="'./viewMember?id='+person.personId"> <button type="button" class="btn btn-dark" id="viewButton">View</button> </a></li>
       </ul>

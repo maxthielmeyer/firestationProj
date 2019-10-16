@@ -13,6 +13,7 @@
     <a class="nav-link" href="./reports.html">Reports</a>
   </nav>
   <body>
+
     <div class="container-fluid">
       <div class="row">
         <div class="col-6" id="memberInfo">
@@ -21,59 +22,62 @@
             <div class="form-group">
             <div class="row">
               <div class="col-3">First name:</div>
-              <div class="col-2"><input type="text" name="fname" :value="currentPerson.firstName"></div>
+              <div class="col-2"><input class="personInfo" disabled type="text" name="fname" :value="currentPerson.firstName"></div>
             </div>
             </div>
             <div class="form-group">
             <div class="row">
               <div class="col-3"> Last name:</div>
-              <div class="col-2"><input type="text" name="lname" :value="currentPerson.lastName"></div>
+              <div class="col-2"><input class="personInfo" disabled type="text" name="lname" :value="currentPerson.lastName"></div>
             </div>
           </div>
           <div class="form-group">
             <div class="row">
               <div class="col-3"> Radio Num:</div>
-              <div class="col-2"><input type="text" name="radioNum" :value="currentPerson.radioNum"></div>
+              <div class="col-2"><input class="personInfo" disabled type="text" name="radioNum" :value="currentPerson.radioNum"></div>
             </div>
           </div>
           <div class="form-group">
             <div class="row">
               <div class="col-3"> Email:</div>
-              <div class="col-2"><input type="text" name="email" :value="currentPerson.email"></div>
+              <div class="col-2"><input class="personInfo" disabled type="text" name="email" :value="currentPerson.email"></div>
             </div>
           </div>
           <div class="form-group">
             <div class="row">
               <div class="col-3"> DOB: </div>
-              <div class="col-2"><input type="date" name="DOB" :value="currentPerson.DOB"></div>
+              <div class="col-2"><input class="personInfo" disabled type="date" name="DOB" :value="currentPerson.DOB"></div>
             </div>
           </div>
           <div class="form-group">
             <div class="row">
               <div class="col-3"> Gender: </div>
-              <div class="col-2"><input type="text" name="gender" :value="currentPerson.gender"></div>
+              <div class="col-2"><input class="personInfo" disabled type="text" name="gender" :value="currentPerson.gender"></div>
             </div>
           </div>
           <div class="form-group">
             <div class="row">
               <div class="col-3"> Address: </div>
-              <div class="col-2"><input type="text" name="address" :value="currentPerson.address"></div>
+              <div class="col-2"><input class="personInfo" disabled type="text" name="address" :value="currentPerson.address" style="width:300px"></div>
             </div>
           </div>
           <div class="form-group">
             <div class="row">
               <div class="col-3"> Station Number: </div>
-              <div class="col-2"><input type="text" name="stationNumber" :value="currentPerson.stationNumber"></div>
+              <div class="col-2"><input class="personInfo" disabled type="text" name="stationNumber" :value="currentPerson.stationNumber"></div>
             </div>
           </div>
             <br>
-            <input class="btn-dark" type="submit" value="Submit changes">
+            <input class="btn-dark" id="submitButton" type="submit" value="Submit changes" style="display: none">
           </form>
+          <button onclick="editInfo()" id="editButton"> Edit Record </button>
+          <button onclick="cancelEdit()" id="cancelButton" style="display: none"> Cancel Edit </button>
           <br>
           <br>
           <form action="/deleteMember.php">
             <input class="btn-danger" type="submit" value="Delete Member Record">
           </form>
+          <br>
         </div>
 
         <div class="col-6" id="memberCerts">
@@ -120,7 +124,33 @@
           </form>
           </div>
         </div>
-      </div>
+
+        <script>
+        //quick script to enable editing when edit button pressed
+        function editInfo(){
+            document.getElementById("submitButton").style.display = "inline";
+            document.getElementById("cancelButton").style.display = "inline";
+            document.getElementById("editButton").style.display = "none";
+            var x = document.getElementsByClassName("personInfo");
+            for (var i=0, len=x.length|0; i<len; i=i+1|0) {
+              x[i].disabled = false;}
+            }
+        </script>
+
+        <script>
+
+        // script to cancel editing when cancel button pressed
+        function cancelEdit(){
+            document.getElementById("submitButton").style.display = "none";
+            document.getElementById("editButton").style.display = "inline";
+            document.getElementById("cancelButton").style.display = "none";
+            var x = document.getElementsByClassName("personInfo");
+            for (var i=0, len=x.length|0; i<len; i=i+1|0) {
+              x[i].disabled = true;
+            }
+            }
+        </script>
+
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="js/memberDetails.app.js"></script>
     </body>

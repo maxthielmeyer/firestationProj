@@ -2,7 +2,8 @@ var personRecordsApp = new Vue({
   el: '#middle',
   data: {
     persons: [],
-    activePersons: []
+    activePersons: [],
+    inactivePersons: []
   },
   methods: {
     fetchPersons() {
@@ -11,10 +12,13 @@ var personRecordsApp = new Vue({
       .then(json => { personRecordsApp.persons = json; this.setActivePersons()});
     },
     setActivePersons(){
-      
+
       for(var person of this.persons){
         if(person.isActive){
           this.activePersons.push(person);
+        }
+        else{
+          this.inactivePersons.push(person);
         }
       }
     }

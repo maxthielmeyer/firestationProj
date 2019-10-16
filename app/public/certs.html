@@ -14,27 +14,25 @@
 </nav>
 
 <body>
-  <h1> Oconee County Fire Rescue !</h1>
   <div class="container-fluid">
     <div class="row">
       <div class="col-7" id="middle">
         <br>
-
         <div id="certList">
           <h3> Tracked Certifications </h3>
-          <ul class="list-group">
-            <li id="certView"> <h2> CPR </h2>
-              <p> Cardiopulmonary resuscitation training is mandatory for all members to ensure victims can be treated immediately. </p>
-              <a href="./viewCert.html"> <button type="button" class="btn btn-dark" id="viewButton">View Report</button> </a>
-            </li>
-            <li  id="certView"> <h2> First Aid </h2>
-              <p> Cardiopulmonary resuscitation training is mandatory for all members to ensure victims can be treated immediately. </p>
-              <a href="./viewCert.html"> <button type="button" class="btn btn-dark" id="viewButton">View Report</button> </a>
-            </li>
-            <li id="certView"> <h2> Forest Rescue </h2>
-              <p> smokeyBear.jpg </p>
-              <a href="./viewCert.html"> <button type="button" class="btn btn-dark" id="viewButton">View Report</button> </a>
-            </li>
+          <ul class="list-group" style="list-style-type:none">
+            <li v-for="cert in certificates" class="certBox">
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{cert.cName}}</h5>
+              <small>{{cert.cAgency}}</small>
+            </div>
+            <br>
+            <p class="mb-1">{{cert.description}}</p>
+            <br>
+            <small><button class="btn btn-info"> View Report </button></small>
+          </div>
+        </li>
           </ul>
         </div>
       </div>
@@ -69,8 +67,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/waiting.app.js"></script>
-    <script src="js/record.app.js"></script>
-    <script src="js/triage.app.js"></script>
+    <script src="js/certRecords.app.js"></script>
+
   </body>
   </html>

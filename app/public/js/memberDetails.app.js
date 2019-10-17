@@ -2,7 +2,8 @@ var personRecordsApp = new Vue({
   el: '#memberInfo',
   data: {
     persons: [],
-    currentPerson: {}
+    currentPerson: {},
+    gender:''
   },
   methods: {
     fetchPersons() {
@@ -20,7 +21,7 @@ var personRecordsApp = new Vue({
       }
     },
     savePerson(){
-      console.log('reached here');
+      console.log(this.currentPerson.gender);
       fetch('api/memberById/post.php', {
         method:'POST',
         body: JSON.stringify(this.currentPerson),

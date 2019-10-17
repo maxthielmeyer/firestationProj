@@ -16,11 +16,11 @@ var personRecordsApp = new Vue({
       for(var person of this.persons){
         if(person.personId == currentPersonId){
           this.currentPerson = person;
-          console.log(person);
         }
       }
     },
     savePerson(){
+      console.log('reached here');
       fetch('api/memberById/post.php', {
         method:'POST',
         body: JSON.stringify(this.currentPerson),

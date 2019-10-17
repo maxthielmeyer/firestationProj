@@ -19,6 +19,20 @@ var personRecordsApp = new Vue({
           console.log(person);
         }
       }
+    },
+    savePerson(){
+      fetch('api/memberById/post.php', {
+        method:'POST',
+        body: JSON.stringify(this.currentPerson),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      .then( response => response.json() )
+      .catch( err => {
+        console.error('RECORD POST ERROR:');
+        console.error(err);
+      })
     }
   },
   created() {

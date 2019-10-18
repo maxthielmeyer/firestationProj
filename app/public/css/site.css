@@ -110,8 +110,7 @@ border:solid;
 #addCert{
   text-align: center;
   background-color: lightgray;
-  border:solid;
-  max-width: 500px;
+  max-width: 610px;
 }
 
 #certDateInput{

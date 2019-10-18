@@ -2,7 +2,8 @@ var personRecordsApp = new Vue({
   el: '#memberInfo',
   data: {
     persons: [],
-    currentPerson: {}
+    currentPerson: {},
+    gender:''
   },
   methods: {
     fetchPersons() {
@@ -16,9 +17,23 @@ var personRecordsApp = new Vue({
       for(var person of this.persons){
         if(person.personId == currentPersonId){
           this.currentPerson = person;
-          console.log(person);
         }
       }
+    },
+    savePerson(){
+      console.log(this.currentPerson.gender);
+      fetch('api/memberById/post.php', {
+        method:'POST',
+        body: JSON.stringify(this.currentPerson),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      .then( response => response.json() )
+      .catch( err => {
+        console.error('RECORD POST ERROR:');
+        console.error(err);
+      })
     }
   },
   created() {

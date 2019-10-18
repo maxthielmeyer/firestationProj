@@ -4,6 +4,13 @@
 }
 .navbar{
   color:orange;
+  border-bottom:solid;
+  border-bottom-width: thin;
+}
+
+#secondBorder{
+  border-bottom: solid;
+  border-width: thin;
 }
 
 .navtitle{
@@ -50,7 +57,36 @@
 #memberInfo{
   background-color: darkgray;
   text-align:center;
+  border-bottom:solid;
+  border-bottom-width: thin;
 }
+
+#memberCerts{
+  border-bottom:solid;
+  border-left:solid;
+  border-width:thin;
+}
+#editForm .col-3{
+  font-family: sans-serif;
+  text-align: right;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+#memberInfo .col-2{
+}
+
+#memberInfo .row{
+  margin-left:auto;
+  margin-right: auto;
+}
+
+#address{
+  width:250px;
+  height:100px;
+}
+
 #memberCerts{
   background-color: gray;
   width:100%;
@@ -123,6 +159,7 @@ border:solid;
   font-size: 100%;
   color:black;
 }
+
 body, html {
     height: 100%;
 }

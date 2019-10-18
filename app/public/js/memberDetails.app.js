@@ -3,7 +3,9 @@ var personRecordsApp = new Vue({
   data: {
     persons: [],
     currentPerson: {},
-    gender:''
+    gender:'',
+    certs: [],
+    userCerts: []
   },
   methods: {
     fetchPersons() {
@@ -19,7 +21,9 @@ var personRecordsApp = new Vue({
           this.currentPerson = person;
         }
       }
+      this.getMemberCerts(currentPersonId)
     },
+
     savePerson(){
       console.log(this.currentPerson.gender);
       fetch('api/memberById/post.php', {
@@ -34,9 +38,25 @@ var personRecordsApp = new Vue({
         console.error('RECORD POST ERROR:');
         console.error(err);
       })
+    },
+
+    getMemberCerts(){
+      fetch('api/memberById/certs.php')
+      .then(response => response.json())
+      .then(json => { personRecordsApp.certs = json;})
+      .then(this.setCurrentCerts());
+    },
+    setCurrentCerts(){
+      var paramIndex = document.location.href.lastIndexOf('=');
+      var currentPersonId = document.location.href.substring(paramIndex+1);
+      for(var cert of this.certs){
+        if(cert.personId == currentPersonId) this.userCerts.push(cert);
+      }
+      console.log(this.userCerts)
     }
   },
   created() {
     this.fetchPersons();
+    this.getMemberCerts();
   }
 });

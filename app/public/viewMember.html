@@ -40,9 +40,9 @@
           </tbody></table> -->
 
 
-    <div class="container-fluid">
+    <div class="container-fluid" id="memberInfo">
       <div class="row">
-        <div class="col-6" id="memberInfo">
+        <div class="col-6">
           <br>
           <h1> {{currentPerson.firstName}} {{currentPerson.lastName}} </h1>
           <form @submit.prevent="savePerson">
@@ -121,18 +121,17 @@
             <tr>
               <th>Certification</th>
               <th>Issued</th>
+              <th>Expires</th>
               <th>Status</th>
             </tr>
             </thead>
-            <tr>
-              <td>CPR</td>
-              <td>1/1/2014</td>
-              <td>Valid</td>
-            </tr>
-            <tr>
-              <td>Safe Climbing</td>
-              <td>12/14/1990</td>
-              <td>Expired</td>
+            <!-- <li v-for="person in activePersons"> <h3> {{person.firstName}} {{person.lastName}} </h3> <a :href="'./viewMember?id='+person.personId"> <button type="button" class="btn btn-dark" id="viewButton">View</button> </a></li> -->
+            <tr v-for="cert in userCerts">
+              <td>{{cert.cName}}</td>
+              <td>{{cert.renewedDate}}</td>
+              <td>{{cert.expDate}}</td>
+              <td v-if="new Date(cert.expDate) <= new Date()"> EXPIRED </td>
+              <td v-else> Valid </td>
             </tr>
           </table>
           <br>

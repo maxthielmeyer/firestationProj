@@ -97,6 +97,8 @@
             <br>
             <input class="btn-dark" id="submitButton" type="submit" value="Submit changes" style="display:none">
           </form>
+          <br>
+<!-- what if we have all three buttons on the same line? -->
           <button onclick="editInfo()" id="editButton"> Edit Record </button>
           <button onclick="cancelEdit()" id="cancelButton" style="display:none"> Cancel Edit </button>
           <br>
@@ -104,11 +106,11 @@
           <form action="/deleteMember.php">
             <input class="btn-danger" type="submit" value="Delete Member Record">
           </form>
+
           <br>
         </div>
-
-
         <div class="col-6" id="memberCerts">
+          <br>
           <table class="table table-striped table-light table-hover table-bordered" id="holdTbl">
             <thead class="thead-dark">
             <tr>

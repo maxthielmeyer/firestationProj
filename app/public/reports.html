@@ -18,9 +18,9 @@
     <div class="row">
       <div class="col-2">
       </div>
-      <div class="col-8" id="memberInfo">
+      <div class="col-12" id="memberInfo">
         <h1 id="reportHeader"> Certification Reports </h1>
-        <p> View information about who holds a specific certification.</p>
+        <p> View detailed information about firefighters, badge numbers, and certification status.</p>
 
         <form action="/action_page.php">
           Certification
@@ -36,7 +36,7 @@
             <option value="expired">Expired</option>
             <option value="all">All</option>
           </select>
-          <input type="submit" value="Run" class="btn-dark">
+          <input type="submit" value="View Report" class="btn-dark">
         </form>
       </div>
       <div class="col-2">
@@ -46,11 +46,10 @@
       <div class="col-2">
       </div>
       <div class="col-8">
-        <p> Certification Information Station Creation Ideation goes here </p>
+        <br>
 
-        <table id="certReporttbl">
-          <thead>
-            <tr>
+        <table class="table table-striped table-light table-hover table-bordered" id="certReporttbl">
+          <thead class="thead-dark">
               <th>Name</th>
               <th>Badge Number</th>
               <th>Expiration Date</th>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/site.css">
   </head>
   <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-    <h1> OCFR </h1>
+    <h1 class="navtitle"><a href="./index.html"> OCFR </a></h1> <!--Please match css Addy-->
     <a class="nav-link" href="./index.html">Members</a>
     <a class="nav-link" href="./certs.html">Certifications</a>
     <a class="nav-link" href="./reports.html">Reports</a>
@@ -42,7 +42,7 @@
               <div class="col-2"><input class="personInfo" disabled type="text" name="radioNum" v-model="currentPerson.radioNum"></div>
             </div>
           </div>
-          
+
           <div class="form-group">
             <div class="row">
               <div class="col-3"> Station Number: </div>
@@ -59,10 +59,12 @@
           <div class="form-group">
             <div class="row">
               <label class="col-3"> Gender: </label>
-              <div class="col-2"><input class="personInfo" disabled type="text" name="gender" v-model="currentPerson.gender"></div>
+              <div class="col-2">
+                M <input class="personInfo" disabled type="radio" id="male" value="M" v-model="currentPerson.gender">
+                F <input class="personInfo" disabled type="radio" id="female" value="F" v-model="currentPerson.gender">
+              </div>
             </div>
           </div>
-
           <h3> Contact Information </h3>
           <div class="form-group">
             <div class="row">
@@ -76,6 +78,15 @@
               <div class="col-2"><input class="personInfo" disabled type="text" name="email" v-model="currentPerson.email"></div>
             </div>
           </div>
+          <div class="form-group">
+            <div class="row">
+              <label class="col-3"> Activate? </label>
+              <div class="col-2">
+                Yes <input class="personInfo" disabled type="radio" id="active" value=1 v-model="currentPerson.isActive">
+                No <input class="personInfo" disabled type="radio" id="inactive" value=0 v-model="currentPerson.isActive">
+              </div>
+            </div>
+          </div>
           <div class="form-group" v-for="(num, index) in userNums">
             <div class="row">
               <div class="col-3">Phone number {{++index}}</div>
@@ -84,10 +95,11 @@
             </div>
           </div>
             <br>
-            <input class="btn-dark" id="submitButton" type="submit" value="Submit changes" style="display:none">
+            <input class="btn-dark" id="submitButton" type="submit" onclick="cancelEdit()" value="Submit changes" style="display:none">
           </form>
           <br>
 <!-- what if we have all three buttons on the same line? -->
+          <button @click="addMember()" onclick="editInfo()" id="addButton"> Add New Record </button>
           <button onclick="editInfo()" id="editButton"> Edit Record </button>
           <button onclick="cancelEdit()" id="cancelButton" style="display:none"> Cancel Edit </button>
           <br>

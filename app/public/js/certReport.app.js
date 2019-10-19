@@ -1,27 +1,21 @@
-var personRecordsApp = new Vue({
+var certsApp = new Vue({
   el: '#memberInfo',
   data: {
-    persons: [],
-    currentPerson: {},
-    gender:'',
-    assignedCerts: [],
-    userCerts: [],
-    allCerts: [],
-    phoneNums: [],
-    userNums:[]
+    certs: [],
+    currentCert: {}
   },
   methods: {
     fetchPersons() {
-      fetch('api/records/')
+      fetch('api/certificates/')
       .then(response => response.json())
-      .then(json => { personRecordsApp.persons = json; this.setCurrentPerson()});
+      .then(json => { certsApp.certs = json; this.setCurrentCert()});
     },
-    setCurrentPerson(){
+    setCurrentCert(){
       var paramIndex = document.location.href.lastIndexOf('=');
-      var currentPersonId = document.location.href.substring(paramIndex+1);
-      for(var person of this.persons){
-        if(person.personId == currentPersonId){
-          this.currentPerson = person;
+      var currentCertId = document.location.href.substring(paramIndex+1);
+      for(var cert of this.certs){
+        if(cert.cName == currentCertId){
+          this.currentCert = cert;
         }
       }
       this.getMemberCerts(currentPersonId)

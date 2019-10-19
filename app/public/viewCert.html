@@ -20,14 +20,36 @@
   <div class="container-fluid">
     <div class="row">
 
-      <div class="col-6" id="memberInfo">
-        <h1 id="reportHeader"> Certification Name Here </h1>
+      <div class="col-6" id="certInfo">
+        <h1> {{cert.cName}} </h1>
+        <form @submit.prevent="saveCert" id="editForm">
+          <div class="form-group">
+          <div class="row">
+            <label class="col-3">Certification:</label>
+            <div class="col-2"><input class="personInfo" disabled type="text" name="cName" v-model="cert.cName"></div>
+          </div>
+          <div class="form-group">
+          <div class="row">
+            <label class="col-3">Agency:</label>
+            <div class="col-2"><input class="personInfo" disabled type="text" name="cAgency" v-model="cert.cAgency"></div>
+          </div>
+
+          </div>
+          <div class="form-group">
+          <div class="row">
+            <label class="col-3"> Description:</label>
+            <div class="col-2"><input id="address" class="personInfo" disabled type="text" name="cDesc" v-model="cert.description"></div>
+          </div>
+        </div>
+      </div>
+
+        <!-- <h1 id="reportHeader"> Certification Name Here </h1>
         <button> Edit </button>
         <button> Delete </button>
         <p> This certification is certified to certificate that one has been certified.
         </p>
         <p>Users can get this certification to certify that they've been certified.</p>
-        <p>Valid for: 5 years</p>
+        <p>Valid for: 5 years</p> -->
       </div>
 
       <div class="col-6" id="memberCerts">

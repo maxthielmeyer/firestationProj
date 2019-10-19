@@ -4,7 +4,15 @@
 }
 .navbar{
   color:orange;
+  border-bottom:solid;
+  border-bottom-width: thin;
 }
+
+#secondBorder{
+  border-bottom: solid;
+  border-width: thin;
+}
+
 
 .navtitle{
   padding-right:3%;
@@ -50,7 +58,39 @@
 #memberInfo{
   background-color: darkgray;
   text-align:center;
+  border-bottom:solid;
+  border-bottom-width: thin;
 }
+
+#memberCerts{
+  border-bottom:solid;
+  border-left:solid;
+  border-width:thin;
+}
+#editForm .col-3{
+  font-family: sans-serif;
+  text-align: right;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#memberInfo .col-2{
+}
+
+#memberInfo .row{
+  margin-left:auto;
+  margin-right: auto;
+}
+
+#address{
+  width:250px;
+  height:100px;
+}
+
 #memberCerts{
   background-color: gray;
   width:100%;
@@ -76,13 +116,14 @@ border:solid #ddd;
 border-bottom:double #aaa;
 text-align:left;
 font-weight:500;
-font-style:italic;
+font-family:sans-serif;
+font-style:bold;
 }
 #certReporttbl td{
 text-align:left;
 border:solid #ddd;
 border-bottom: solid #ddd;
-font-family:monospace;
+font-family:sans-serif;
 }
 #certReporttbl tr{
 text-align:left;
@@ -110,8 +151,7 @@ border:solid;
 #addCert{
   text-align: center;
   background-color: lightgray;
-  border:solid;
-  max-width: 500px;
+  max-width: 610px;
 }
 
 #certDateInput{
@@ -123,6 +163,7 @@ border:solid;
   font-size: 100%;
   color:black;
 }
+
 body, html {
     height: 100%;
 }

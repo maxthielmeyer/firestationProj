@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>My Page Title</title>
+  <title>OCF</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="css/site.css">
 </head>
@@ -13,6 +13,9 @@
   <a class="nav-link" href="./reports.html">Reports</a>
 </nav>
 
+<div id="secondBorder">
+</div>
+
 <body>
   <div class="container-fluid">
     <div class="row">
@@ -21,11 +24,12 @@
       <div class="col-10" id="middle">
         <div class="hero-image">
           <div class="hero-text">
-            <h1>Oconee County Fire Rescue </h1>
+            <h1 class="header">Oconee County Fire Rescue </h1>
           </div>
         </div>
         <h3> Active members </h3>
       <ul class="list-group">
+        <!-- normal html list element, v-for links to the personrecords.app.js, a javascrip file that runs vue and define -->
         <li class="list-group-item d-flex justify-content-between" id="firemanView" v-for="person in activePersons"> <h3> {{person.firstName}} {{person.lastName}} </h3> <a :href="'./viewMember?id='+person.personId"> <button type="button" class="btn btn-dark" id="viewButton">View</button> </a></li>
       </ul>
         <h3> Inactive members </h3>

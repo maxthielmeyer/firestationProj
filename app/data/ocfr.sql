@@ -58,9 +58,9 @@ VALUES
 
 INSERT INTO Certificate (cName,cAgency,expDate)
 VALUES
-("Fireman Level 1","Bloomington Firestation",2020-05-16),
-("Fireman Level 2", "Bloomington South Firestation", 2029-09-09),
-("Fireman Level 3", "Indianapolis Firestation", 2030-03-04);
+("Fireman Level 1","Bloomington Firestation","2020-05-16"),
+("Fireman Level 2", "Bloomington South Firestation", "2029-09-09"),
+("Fireman Level 3", "Indianapolis Firestation", "2030-03-04");
 
 INSERT INTO Phone (phoneNum)
 VALUES

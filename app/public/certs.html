@@ -45,18 +45,18 @@
         <div id="addCert">
           <h3 id="addTitle"> Add Certifications </h3>
 
-          <form action="/action_page.php" id="addCertForm">
+          <form @submit="addCertificate" id="addCertForm">
             <div class="form-group">
               <label for="certName">Certification</label>
-              <input type="text" class="form-control" id="certName" placeholder="Enter certification name">
+              <input type="text" class="form-control" id="certName" placeholder="Enter certification name" v-model="currentCertificate.cName">
             </div>
             <div class="form-group">
               <label for="certAgency">Agency</label>
-              <input type="text" class="form-control" id="certAgency" placeholder="Enter certification agency">
+              <input type="text" class="form-control" id="certAgency" placeholder="Enter certification agency" v-model="currentCertificate.cAgency">
             </div>
             <div class="form-group">
               <label for="certDescription">Description</label>
-              <textarea class="form-control" id="certDescritpion" rows="3"></textarea>
+              <textarea class="form-control" id="certDescritpion" rows="3" v-model="currentCertificate.description"></textarea>
             </div>
 
             <input class="btn-dark" type="submit" value="Add Certification" id="submit">
@@ -70,6 +70,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/certRecords.app.js"></script>
-
+    <script src="js/addCerts.app.js"></script>
   </body>
   </html>

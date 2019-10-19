@@ -114,9 +114,9 @@ var personRecordsApp = new Vue({
       var currentPersonId = document.location.href.substring(paramIndex+1);
       for(var num of this.phoneNums){
         if(num.personId == currentPersonId){
-           this.userNums.push(num);
-           console.log(this.userNums);
-         }
+          this.userNums.push(num);
+          console.log(this.userNums);
+        }
       }
     }
   },

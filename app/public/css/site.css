@@ -13,6 +13,7 @@
   border-width: thin;
 }
 
+
 .navtitle{
   padding-right:3%;
 }
@@ -72,6 +73,9 @@
   white-space: nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 #memberInfo .col-2{

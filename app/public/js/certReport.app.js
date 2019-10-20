@@ -15,6 +15,9 @@ var certsApp = new Vue({
     setCurrentCert(){
       var paramIndex = document.location.href.lastIndexOf('=');
       var currentCertId = document.location.href.substring(paramIndex+1);
+
+      //have to a add a line to deal with %20s in URL substring
+      currentCertId = currentCertId.replace(/%20/g," ");
       for(var cert of this.certs){
         if(cert.cName == currentCertId){
           this.currentCert = cert;
@@ -27,24 +30,19 @@ var certsApp = new Vue({
     getMemberCerts(){
       fetch('api/certificates/certJoin.php')
       .then(response => response.json())
-      .then(json => { certsApp.allJoins = json;console.log(certsApp.allJoins)})
+      .then(json => { certsApp.allJoins = json;})
       .then(
         function(){
         var paramIndex = document.location.href.lastIndexOf('=');
         var currentCertId = document.location.href.substring(paramIndex+1);
         for(var join of certsApp.allJoins){
           if(currentCertId == join.cName) certsApp.holdingMembers.push(join);
-          console.log("aas")
         }
-        console.log(this.allJoins);
       });
     },
 
     //find the right certs based on our user
     setUsers(){
-      for(var join of certsApp.allJoins){
-        cosole.log(join);
-      }
       var paramIndex = document.location.href.lastIndexOf('=');
       var certName = document.location.href.substring(paramIndex+1);
       for(var join of this.allJoins){

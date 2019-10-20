@@ -30,13 +30,13 @@
         <h3> Active members </h3>
       <ul class="list-group">
         <!-- normal html list element, v-for links to the personrecords.app.js, a javascrip file that runs vue and define -->
-        <li class="list-group-item d-flex justify-content-between" id="firemanView" v-for="person in activePersons"> <h3> {{person.firstName}} {{person.lastName}} </h3> <a :href="'./viewMember?id='+person.personId"> <button type="button" class="btn btn-dark" id="viewButton">View</button> </a></li>
+        <li class="list-group-item d-flex justify-content-between" id="firemanView" v-for="person in activePersons"> <h3> {{person.firstName}} {{person.lastName}} </h3> <a :href="'./viewMember.html?id='+person.personId"> <button type="button" class="btn btn-dark" id="viewButton">View</button> </a></li>
       </ul>
         <h3> Inactive members </h3>
       <ul class="list-group">
-        <li class="list-group-item d-flex justify-content-between" id="firemanView" v-for="person in inactivePersons"> <h3> {{person.firstName}} {{person.lastName}} </h3> <a :href="'./viewMember?id='+person.personId"> <button type="button" class="btn btn-dark" id="viewButton">View</button> </a></li>
+        <li class="list-group-item d-flex justify-content-between" id="firemanView" v-for="person in inactivePersons"> <h3> {{person.firstName}} {{person.lastName}} </h3> <a :href="'./viewMember.html?id='+person.personId"> <button type="button" class="btn btn-dark" id="viewButton">View</button> </a></li>
       </ul>
-      <a href="./viewMember"> <button type="button" class="btn btn-dark" id="addButton">Add Member</button> </a> <!--Please match css Addy-->
+      <a href="./viewMember.html"> <button type="button" class="btn btn-dark" id="addButton">Add Member</button> </a> <!--Please match css Addy-->
       </div>
       <div class="col-1" id="right">
       </div>

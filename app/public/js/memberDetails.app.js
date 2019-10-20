@@ -8,7 +8,8 @@ var personRecordsApp = new Vue({
     userCerts: [],
     allCerts: [],
     phoneNums: [],
-    userNums:[]
+    userNums:[],
+    isNewMember: false
   },
   methods: {
     fetchPersons() {
@@ -22,27 +23,80 @@ var personRecordsApp = new Vue({
       for(var person of this.persons){
         if(person.personId == currentPersonId){
           this.currentPerson = person;
+          console.log(this.currentPerson);
         }
       }
       this.getMemberCerts(currentPersonId)
     },
 
     savePerson(){
-      console.log(this.currentPerson.gender);
-      fetch('api/memberById/post.php', {
-        method:'POST',
-        body: JSON.stringify(this.currentPerson),
-        headers: {
-          "Content-Type": "application/json; charset=utf-8"
-        }
-      })
-      .then( response => response.json() )
-      .catch( err => {
-        console.error('RECORD POST ERROR:');
-        console.error(err);
-      })
-    },
+      console.log(this.currentPerson.isActive);
+      if(!this.isNewMember){
+        fetch('api/memberById/post.php', {
+          method:'POST',
+          body: JSON.stringify(this.currentPerson),
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          }
+        })
+        .then( response => response.json() )
+        .catch( err => {
+          console.error('RECORD POST ERROR:');
+          console.error(err);
+        })
+      }
+      else{
+        fetch('api/memberById/postNew.php', {
+          method:'POST',
+          body: JSON.stringify(this.currentPerson),
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          }
+        })
+        .then( response => response.json() )
+        .catch( err => {
+          console.error('RECORD POST ERROR:');
+          console.error(err);
+        })
+      }
 
+    },
+    addMember(){
+      this.isNewMember=true;
+      this.resetCurrentPerson();
+    },
+    resetCurrentPerson(){
+      this.currentPerson = {
+        firstName: '',
+        lastName: '',
+        radioNum: '',
+        stationNumber: '',
+        personId: '',
+        DOB: '',
+        gender: '',
+        address: '',
+        email: '',
+      }
+    },
+    deleteMember(){
+      var result = confirm("Are you sure you want to delete?");
+      if(result){
+        fetch('api/memberById/delete.php', {
+          method:'POST',
+          body: JSON.stringify(this.currentPerson),
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          }
+        })
+        .then( response => response.json() )
+        .catch( err => {
+          console.error('RECORD POST ERROR:');
+          console.error(err);
+        })
+        persons=null;
+        window.location.replace("http://localhost:8080/index.html");
+      }
+    },
     getAllCerts(){
       fetch('api/certificates')
       .then(response => response.json())
@@ -78,9 +132,9 @@ var personRecordsApp = new Vue({
       var currentPersonId = document.location.href.substring(paramIndex+1);
       for(var num of this.phoneNums){
         if(num.personId == currentPersonId){
-           this.userNums.push(num);
-           console.log(this.userNums);
-         }
+          this.userNums.push(num);
+          console.log(this.userNums);
+        }
       }
     }
   },

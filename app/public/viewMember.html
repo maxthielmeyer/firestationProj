@@ -104,10 +104,7 @@
         <button onclick="cancelEdit()" id="cancelButton" style="display:none"> Cancel Edit </button>
         <br>
         <br>
-        <form action="/deleteMember.php">
-          <input class="btn-danger" type="submit" value="Delete Member Record">
-        </form>
-
+        <button @click="deleteMember()" class="btn-danger" id="deleteButton"> Delete Member Record </button>
         <br>
       </div>
       <div class="col-6" id="memberCerts">

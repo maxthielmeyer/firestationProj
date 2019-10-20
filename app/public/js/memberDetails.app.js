@@ -62,7 +62,6 @@ var personRecordsApp = new Vue({
 
     },
     addMember(){
-      console.log('reached here')
       this.isNewMember=true;
       this.resetCurrentPerson();
     },
@@ -77,6 +76,25 @@ var personRecordsApp = new Vue({
         gender: '',
         address: '',
         email: '',
+      }
+    },
+    deleteMember(){
+      var result = confirm("Are you sure you want to delete?");
+      if(result){
+        fetch('api/memberById/delete.php', {
+          method:'POST',
+          body: JSON.stringify(this.currentPerson),
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          }
+        })
+        .then( response => response.json() )
+        .catch( err => {
+          console.error('RECORD POST ERROR:');
+          console.error(err);
+        })
+        persons=null;
+        window.location.replace("http://localhost:8080/index.html");
       }
     },
     getAllCerts(){

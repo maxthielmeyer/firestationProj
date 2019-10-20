@@ -185,7 +185,7 @@ body, html {
     height: 100%;
 }
 
-#addButton{
+.indexButton{
   box-shadow:inset 0px 10px 13px -6px #8a8a8a;
   	background:linear-gradient(to bottom, #000000 5%, #4d4d4d 100%);
   	background-color:#000000;

@@ -186,19 +186,19 @@ body, html {
 }
 
 #addButton{
-  box-shadow:inset 0px 10px 13px -6px #404040;
-	background:linear-gradient(to bottom, #ffa600 5%, #333333 100%);
-	background-color:#ffa600;
-	border-radius:24px;
-	border:2px solid #050505;
-	display:inline-block;
-	cursor:pointer;
-	color:#f2f2f2;
-	font-family:Arial;
-	font-size:22px;
-	font-weight:bold;
-	padding:24px 65px;
-	text-decoration:none;
+  box-shadow:inset 0px 10px 13px -6px #8a8a8a;
+  	background:linear-gradient(to bottom, #000000 5%, #4d4d4d 100%);
+  	background-color:#000000;
+  	border-radius:14px;
+  	border:2px solid #ffa600;
+  	display:inline-block;
+  	cursor:pointer;
+  	color:#ffa600;
+  	font-family:Arial;
+  	font-size:22px;
+  	font-weight:bold;
+  	padding:24px 65px;
+  	text-decoration:none;
 }
 
 .hero-image {

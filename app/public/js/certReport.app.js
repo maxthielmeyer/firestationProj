@@ -4,7 +4,10 @@ var certsApp = new Vue({
     certs: [],
     currentCert: {},
     allJoins: [],
-    holdingMembers: []
+    holdingMembers: [],
+    //adding filtering features
+    filter: {
+    }
   },
   methods: {
     fetchCerts() {

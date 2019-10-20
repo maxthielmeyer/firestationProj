@@ -90,7 +90,7 @@
           <div class="form-group" v-for="(num, index) in userNums">
             <div class="row">
               <div class="col-3">Phone number {{++index}}</div>
-              <div class="col-2"><input class="personInfo" disabled type="text" name="number" v-model="num.phoneNum"></div>
+              <div class="col-2"><input class="personInfo" disabled type="text" name="number" v-model="num.phoneNum" required></div>
 
             </div>
           </div>
@@ -138,10 +138,10 @@
           <h1 id ="addTitle"> Add Certification </h1>
           <div class="form-group">
             <label for="certDateIssued" id="label">Date Issued</label>
-            <input type="date" class="form-control" id="certDateIssued" requried>
+            <input type="date" class="form-control" id="certDateIssued" requried/>
 
-            <label for="certDateExpires" id="label">Expirty Date</label>
-            <input type="date" class="form-control" id="certDateExpires" required>
+            <label for="certDateExpires" id="label">Expiry Date</label>
+            <input type="date" class="form-control" id="certDateExpires" required/>
           </div>
           <label for="certTypeInput" id="label">Certification</label>
           <select class="custom-select">

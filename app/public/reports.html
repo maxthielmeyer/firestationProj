@@ -48,9 +48,27 @@
     <div class="row">
       <div class="col-2">
       </div>
-      <div class="col-8">
-        <br>
+      <!-- filter through certification -->
+      <div class="filter">
+        <select v-model="filter.certification">
+          <option value="">(all)</option>
+          <option>CPR</option>
+          <option>Fire Rescue</option>
+          <option>First Aid</option>
+        </select>
+      </div>
+      <!-- filter through valid vs. invalid -->
+      <div class="filter">
+        <select v-model="filter.valid">
+          <option value="">(all)</option>
+          <option>Valid</option>
+          <option>Expired</option>
+        </select>
+      </div>
 
+
+        <div class="col-8">
+        <br>
         <table class="table table-striped table-light table-hover table-bordered" id="certReporttbl">
           <thead class="thead-dark">
               <th>Name</th>
@@ -60,7 +78,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr v-show>
               <td>Toddrick Rickson</td>
               <td>123123</td>
               <td>1/1/2024</td>

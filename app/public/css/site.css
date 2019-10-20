@@ -208,7 +208,7 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  padding-top:1.1%;
+  padding-top:8px;
 }
 
 .hero-text {

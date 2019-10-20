@@ -7,13 +7,11 @@ $db = DbConnection::getConnection();
 
 // Step 2: Prepare & run the query
 $stmt = $db->prepare(
-  'UPDATE Person
-  SET personId = ?, firstName = ?, lastName = ?, radioNum = ?, email = ?, DOB = ?, gender = ?, address = ?, stationNumber = ?, isActive = ?
-  WHERE personId = ?'
+  'INSERT INTO Person(firstName, lastName, radioNum, email, DOB, gender, address, stationNumber, isActive)
+  VALUES (?,?,?,?,?,?,?,?,?)'
 );
 
 $stmt->execute([
-  $_POST['personId'],
   $_POST['firstName'],
   $_POST['lastName'],
   $_POST['radioNum'],
@@ -22,8 +20,7 @@ $stmt->execute([
   $_POST['gender'],
   $_POST['address'],
   $_POST['stationNumber'],
-  $_POST['isActive'],
-  $_POST['personId']
+  $_POST['isActive']
 ]);
 
 // Step 4: Output

@@ -13,7 +13,6 @@
   border-width: thin;
 }
 
-
 .navtitle{
   padding-right:3%;
 }
@@ -24,6 +23,13 @@
   position:relative;
 }
 
+nav a {
+  color:orange;
+}
+
+nav a:hover{
+  color:white;
+}
 #active{
   background-color:orange;
   color:black;
@@ -49,6 +55,7 @@
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
 #viewButton{
   height: 100%;
   color: orange;
@@ -127,12 +134,14 @@ font-weight:500;
 font-family:sans-serif;
 font-style:bold;
 }
+
 #certReporttbl td{
 text-align:left;
 border:solid #ddd;
 border-bottom: solid #ddd;
 font-family:sans-serif;
 }
+
 #certReporttbl tr{
 text-align:left;
 border:solid;
@@ -176,6 +185,22 @@ body, html {
     height: 100%;
 }
 
+.indexButton{
+  box-shadow:inset 0px 10px 13px -6px #8a8a8a;
+  	background:linear-gradient(to bottom, #000000 5%, #4d4d4d 100%);
+  	background-color:#000000;
+  	border-radius:14px;
+  	border:2px solid #ffa600;
+  	display:inline-block;
+  	cursor:pointer;
+  	color:white;
+  	font-family:Arial;
+  	font-size:22px;
+  	font-weight:bold;
+  	padding:24px 65px;
+  	text-decoration:none;
+}
+
 .hero-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/firefighter.jpg");
   height: 300px;
@@ -183,6 +208,7 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  padding-top:8px;
 }
 
 .hero-text {

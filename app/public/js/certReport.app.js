@@ -1,12 +1,14 @@
 var certsApp = new Vue({
-  el: '#memberInfo',
+  el: '#certInfo',
   data: {
     certs: [],
-    currentCert: {}
+    currentCert: {},
+    allJoins: [],
+    holdingMembers: []
   },
   methods: {
-    fetchPersons() {
-      fetch('api/certificates/')
+    fetchCerts() {
+      fetch('api/certificates/index.php')
       .then(response => response.json())
       .then(json => { certsApp.certs = json; this.setCurrentCert()});
     },
@@ -18,70 +20,44 @@ var certsApp = new Vue({
           this.currentCert = cert;
         }
       }
-      this.getMemberCerts(currentPersonId)
-    },
-
-    savePerson(){
-      console.log(this.currentPerson.gender);
-      fetch('api/memberById/post.php', {
-        method:'POST',
-        body: JSON.stringify(this.currentPerson),
-        headers: {
-          "Content-Type": "application/json; charset=utf-8"
-        }
-      })
-      .then( response => response.json() )
-      .catch( err => {
-        console.error('RECORD POST ERROR:');
-        console.error(err);
-      })
-    },
-
-    getAllCerts(){
-      fetch('api/certificates')
-      .then(response => response.json())
-      .then(json => { personRecordsApp.allCerts = json;})
+      // this.getMemberCerts(currentPersonId)
     },
 
     //get all Certifications in user_cert table
     getMemberCerts(){
-      fetch('api/memberById/certs.php')
+      fetch('api/certificates/certJoin.php')
       .then(response => response.json())
-      .then(json => { personRecordsApp.assignedCerts = json;})
-      .then(this.setCurrentCerts());
+      .then(json => { certsApp.allJoins = json;console.log(certsApp.allJoins)})
+      .then(
+        function(){
+        var paramIndex = document.location.href.lastIndexOf('=');
+        var currentCertId = document.location.href.substring(paramIndex+1);
+        for(var join of certsApp.allJoins){
+          if(currentCertId == join.cName) certsApp.holdingMembers.push(join);
+          console.log("aas")
+        }
+        console.log(this.allJoins);
+      });
     },
 
     //find the right certs based on our user
-    setCurrentCerts(){
-      var paramIndex = document.location.href.lastIndexOf('=');
-      var currentPersonId = document.location.href.substring(paramIndex+1);
-      for(var cert of this.assignedCerts){
-        if(cert.personId == currentPersonId) this.userCerts.push(cert);
+    setUsers(){
+      for(var join of certsApp.allJoins){
+        cosole.log(join);
       }
-      console.log(this.userCerts)
-    },
-
-    getPhoneNums(){
-      fetch('api/memberById/numbers.php')
-      .then(response => response.json())
-      .then(json => { personRecordsApp.phoneNums = json; this.getMemberNums()})
-    },
-
-    getMemberNums(){
       var paramIndex = document.location.href.lastIndexOf('=');
-      var currentPersonId = document.location.href.substring(paramIndex+1);
-      for(var num of this.phoneNums){
-        if(num.personId == currentPersonId){
-           this.userNums.push(num);
-           console.log(this.userNums);
-         }
+      var certName = document.location.href.substring(paramIndex+1);
+      for(var join of this.allJoins){
+        if(certName == join.cName) certsApp.holdingMembers.push(join);
+        console.log("aas")
       }
+      console.log(this.allJoins)
     }
   },
   created() {
-    this.fetchPersons();
+    this.fetchCerts();
     this.getMemberCerts();
-    this.getAllCerts();
-    this.getPhoneNums();
+    // this.getAllCerts();
+    // this.getPhoneNums();
   }
 });

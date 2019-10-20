@@ -96,6 +96,7 @@
 #address{
   width:250px;
   height:100px;
+  word-wrap: normal;
 }
 
 #memberCerts{
@@ -220,6 +221,10 @@ font-size:120%;
 #addTitle{
 padding-bottom:8%;
 }
+
+/* #descriptionInput{
+  overflow-wrap: break;
+} */
 
 .certBox{
   margin-bottom:5px;

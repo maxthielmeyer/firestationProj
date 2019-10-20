@@ -48,15 +48,15 @@
           <form @submit="addCertificate" id="addCertForm">
             <div class="form-group">
               <label for="certName">Certification</label>
-              <input type="text" class="form-control" id="certName" placeholder="Enter certification name" v-model="currentCertificate.cName">
+              <input type="text" class="form-control" id="certName" placeholder="Enter certification name" v-model="currentCertificate.cName" required>
             </div>
             <div class="form-group">
               <label for="certAgency">Agency</label>
-              <input type="text" class="form-control" id="certAgency" placeholder="Enter certification agency" v-model="currentCertificate.cAgency">
+              <input type="text" class="form-control" id="certAgency" placeholder="Enter certification agency" v-model="currentCertificate.cAgency" required>
             </div>
             <div class="form-group">
               <label for="certDescription">Description</label>
-              <textarea class="form-control" id="certDescritpion" rows="3" v-model="currentCertificate.description"></textarea>
+              <textarea class="form-control" id="certDescritpion" rows="3" v-model="currentCertificate.description" required></textarea>
             </div>
 
             <input class="btn-dark" type="submit" value="Add Certification" id="submit">

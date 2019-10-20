@@ -23,19 +23,19 @@
           <div class="form-group">
           <div class="row">
             <label class="col-3">Certification:</label>
-            <div class="col-2"><input class="personInfo" disabled type="text" name="cName" v-model="currentCert.cName"></div>
+            <div class="col-2"><input class="personInfo" disabled type="text" name="cName" v-model="currentCert.cName" required></div>
           </div>
           <div class="form-group">
           <div class="row">
             <label class="col-3">Agency:</label>
-            <div class="col-2"><input class="personInfo" disabled type="text" name="cAgency" v-model="currentCert.cAgency"></div>
+            <div class="col-2"><input class="personInfo" disabled type="text" name="cAgency" v-model="currentCert.cAgency" required></div>
           </div>
           </div>
           </div>
           <div class="form-group">
           <div class="row">
             <label class="col-3"> Description:</label>
-            <div class="col-2"><textarea id="address" class="personInfo" disabled type=text name="cDesc" v-model="currentCert.description"></textarea></div>
+            <div class="col-2"><textarea id="address" class="personInfo" disabled type=text name="cDesc" v-model="currentCert.description" required></textarea></div>
           </div>
         </div>
         <input class="btn-dark" id="submitButton" type="submit" value="Submit changes" style="display:none">

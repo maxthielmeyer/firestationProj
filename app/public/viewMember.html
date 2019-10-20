@@ -26,41 +26,41 @@
           <div class="form-group">
             <div class="row">
               <label class="col-3">First name:</label>
-              <div class="col-2"><input class="personInfo" disabled type="text" name="firstName" v-model="currentPerson.firstName"></div>
+              <div class="col-2"><input class="personInfo" disabled type="text" name="firstName" v-model="currentPerson.firstName" required></div>
             </div>
           </div>
           <div class="form-group">
             <div class="row">
               <label class="col-3"> Last name:</label>
-              <div class="col-2"><input class="personInfo" disabled type="text" name="lastName" v-model="currentPerson.lastName"></div>
+              <div class="col-2"><input class="personInfo" disabled type="text" name="lastName" v-model="currentPerson.lastName" required></div>
             </div>
           </div>
 
           <div class="form-group">
             <div class="row">
               <label class="col-3"> Radio Num:</label>
-              <div class="col-2"><input class="personInfo" disabled type="text" name="radioNum" v-model="currentPerson.radioNum"></div>
+              <div class="col-2"><input class="personInfo" disabled type="text" name="radioNum" v-model="currentPerson.radioNum" required minlength="2" maxlength="2"></div>
             </div>
           </div>
 
           <div class="form-group">
             <div class="row">
               <div class="col-3"> Station Number: </div>
-              <div class="col-2"><input class="personInfo" disabled type="text" name="stationNumber" v-model="currentPerson.stationNumber"></div>
+              <div class="col-2"><input class="personInfo" disabled type="text" name="stationNumber" v-model="currentPerson.stationNumber" required minlength="5" maxlength="5"></div>
             </div>
           </div>
 
           <div class="form-group">
             <div class="row">
               <label class="col-3"> DOB: </label>
-              <div class="col-2"><input class="personInfo" disabled type="date" name="DOB" v-model="currentPerson.DOB"></div>
+              <div class="col-2"><input class="personInfo" disabled type="date" name="DOB" v-model="currentPerson.DOB" required minlength="10" maxlength="10"></div>
             </div>
           </div>
           <div class="form-group">
             <div class="row">
               <label class="col-3"> Gender: </label>
               <div class="col-2">
-                M <input class="personInfo" disabled type="radio" id="male" value="M" v-model="currentPerson.gender">
+                M <input class="personInfo" disabled type="radio" id="male" value="M" v-model="currentPerson.gender" required>
                 F <input class="personInfo" disabled type="radio" id="female" value="F" v-model="currentPerson.gender">
               </div>
             </div>
@@ -69,20 +69,20 @@
           <div class="form-group">
             <div class="row">
               <label class="col-3"> Address: </label>
-              <div class="col-2"><input class="personInfo" id="address" disabled type="text" name="address" v-model="currentPerson.address"></div>
+              <div class="col-2"><input class="personInfo" id="address" disabled type="text" name="address" v-model="currentPerson.address" required></div>
             </div>
           </div>
           <div class="form-group">
             <div class="row">
               <div class="col-3"> Email:</div>
-              <div class="col-2"><input class="personInfo" disabled type="text" name="email" v-model="currentPerson.email"></div>
+              <div class="col-2"><input class="personInfo" disabled type="text" name="email" v-model="currentPerson.email" required></div>
             </div>
           </div>
           <div class="form-group">
             <div class="row">
               <label class="col-3"> Activate? </label>
               <div class="col-2">
-                Yes <input class="personInfo" disabled type="radio" id="active" value=1 v-model="currentPerson.isActive">
+                Yes <input class="personInfo" disabled type="radio" id="active" value=1 v-model="currentPerson.isActive" required>
                 No <input class="personInfo" disabled type="radio" id="inactive" value=0 v-model="currentPerson.isActive">
               </div>
             </div>
@@ -138,10 +138,10 @@
           <h1 id ="addTitle"> Add Certification </h1>
           <div class="form-group">
             <label for="certDateIssued" id="label">Date Issued</label>
-            <input type="date" class="form-control" id="certDateIssued">
+            <input type="date" class="form-control" id="certDateIssued" requried>
 
             <label for="certDateExpires" id="label">Expirty Date</label>
-            <input type="date" class="form-control" id="certDateExpires">
+            <input type="date" class="form-control" id="certDateExpires" required>
           </div>
           <label for="certTypeInput" id="label">Certification</label>
           <select class="custom-select">

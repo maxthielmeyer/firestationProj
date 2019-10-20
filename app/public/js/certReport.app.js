@@ -48,10 +48,9 @@ var certsApp = new Vue({
 
       //have to a add a line to deal with %20s in URL substring
       currentCertId = currentCertId.replace(/%20/g," ");
-      
+
       for(var join of this.allJoins){
         if(certName == join.cName) certsApp.holdingMembers.push(join);
-        console.log("aas")
       }
       console.log(this.allJoins)
     }

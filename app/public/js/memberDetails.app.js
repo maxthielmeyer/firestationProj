@@ -98,7 +98,7 @@ var personRecordsApp = new Vue({
       }
     },
     getAllCerts(){
-      fetch('api/certificates')
+      fetch('api/certificates/index.php')
       .then(response => response.json())
       .then(json => { personRecordsApp.allCerts = json;})
     },

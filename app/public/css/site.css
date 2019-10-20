@@ -62,6 +62,13 @@
   border-bottom-width: thin;
 }
 
+#certInfo{
+  background-color: darkgray;
+  text-align:center;
+  border-bottom:solid;
+  border-bottom-width: thin;
+}
+
 #memberCerts{
   border-bottom:solid;
   border-left:solid;
@@ -89,6 +96,7 @@
 #address{
   width:250px;
   height:100px;
+  word-wrap: normal;
 }
 
 #memberCerts{
@@ -213,6 +221,10 @@ font-size:120%;
 #addTitle{
 padding-bottom:8%;
 }
+
+/* #descriptionInput{
+  overflow-wrap: break;
+} */
 
 .certBox{
   margin-bottom:5px;

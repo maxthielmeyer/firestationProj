@@ -150,35 +150,10 @@
           <input class="btn-dark" type="submit" value="Add">
         </form>
       </div>
-    </div>
-  </div>
-  <script>
-  //quick script to enable editing when edit button pressed
-  function editInfo(){
-    document.getElementById("submitButton").style.display = "inline";
-    document.getElementById("cancelButton").style.display = "inline";
-    document.getElementById("editButton").style.display = "none";
-    var x = document.getElementsByClassName("personInfo");
-    for (var i=0, len=x.length|0; i<len; i=i+1|0) {
-      x[i].disabled = false;}
-    }
-    </script>
 
-    <script>
+        <script src="js/buttons.js"> </script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="js/memberDetails.app.js"></script>
+    </body>
 
-    // script to cancel editing when cancel button pressed
-    function cancelEdit(){
-      document.getElementById("submitButton").style.display = "none";
-      document.getElementById("editButton").style.display = "inline";
-      document.getElementById("cancelButton").style.display = "none";
-      var x = document.getElementsByClassName("personInfo");
-      for (var i=0, len=x.length|0; i<len; i=i+1|0) {
-        x[i].disabled = true;
-      }
-    }
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/memberDetails.app.js"></script>
-  </body>
   </html>

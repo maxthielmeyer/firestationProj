@@ -75,6 +75,24 @@ var certsApp = new Vue({
         console.error(err);
       })
       window.location.replace("./certs.html");
+    },
+    deleteCert(){
+      var result = confirm("Are you sure you want to delete?");
+      if(result){
+        fetch('api/certificates/deleteCert.php', {
+          method:'POST',
+          body: JSON.stringify(this.currentCert),
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          }
+        })
+        .then( response => response.json() )
+        .catch( err => {
+          console.error('RECORD POST ERROR:');
+          console.error(err);
+        })
+        window.location.replace("./index.html");
+      }
     }
   },
   created() {

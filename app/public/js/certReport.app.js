@@ -8,7 +8,10 @@ var certsApp = new Vue({
     //adding filtering features
     filter: {
     },
-    oldcName:''
+    oldcName:'',
+    certification:'',
+    valid:''
+    }
   },
   methods: {
     fetchCerts() {

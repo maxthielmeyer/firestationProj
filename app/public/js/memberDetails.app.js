@@ -60,7 +60,7 @@ var personRecordsApp = new Vue({
           console.error(err);
         })
       }
-
+      window.location.replace("./index.html");
     },
     addMember(){
       this.isNewMember=true;
@@ -155,6 +155,7 @@ var personRecordsApp = new Vue({
         console.error('RECORD POST ERROR:');
         console.error(err);
       })
+      window.location.replace("./viewMember.html?id="+this.currentPerson.personId);
     }
   },
   created() {

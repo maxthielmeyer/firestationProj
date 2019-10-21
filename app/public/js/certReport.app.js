@@ -7,8 +7,10 @@ var certsApp = new Vue({
     holdingMembers: [],
     //adding filtering features
     filter: {
-      certification:'',
-      valid:''
+    },
+    oldcName:'',
+    certification:'',
+    valid:''
     }
   },
   methods: {
@@ -26,6 +28,7 @@ var certsApp = new Vue({
       for(var cert of this.certs){
         if(cert.cName == currentCertId){
           this.currentCert = cert;
+          this.oldcName=cert.cName;
         }
       }
       // this.getMemberCerts(currentPersonId)
@@ -58,6 +61,41 @@ var certsApp = new Vue({
         if(certName == join.cName) certsApp.holdingMembers.push(join);
       }
       console.log(this.allJoins)
+    },
+    saveCert(){
+      console.log(this.oldcName);
+      this.currentCert.oldcName = this.oldcName;
+      fetch('api/certificates/updateCert.php', {
+        method:'POST',
+        body: JSON.stringify(this.currentCert),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      .then( response => response.json() )
+      .catch( err => {
+        console.error('RECORD POST ERROR:');
+        console.error(err);
+      })
+      window.location.replace("./certs.html");
+    },
+    deleteCert(){
+      var result = confirm("Are you sure you want to delete?");
+      if(result){
+        fetch('api/certificates/deleteCert.php', {
+          method:'POST',
+          body: JSON.stringify(this.currentCert),
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          }
+        })
+        .then( response => response.json() )
+        .catch( err => {
+          console.error('RECORD POST ERROR:');
+          console.error(err);
+        })
+        window.location.replace("./index.html");
+      }
     }
   },
   created() {

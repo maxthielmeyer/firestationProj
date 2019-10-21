@@ -9,6 +9,7 @@ var personRecordsApp = new Vue({
     allCerts: [],
     phoneNums: [],
     userNums:[],
+    currentUserCert:{},
     isNewMember: false
   },
   methods: {
@@ -26,7 +27,7 @@ var personRecordsApp = new Vue({
           console.log(this.currentPerson);
         }
       }
-      this.getMemberCerts(currentPersonId)
+      this.getMemberCerts();
     },
 
     savePerson(){
@@ -59,7 +60,7 @@ var personRecordsApp = new Vue({
           console.error(err);
         })
       }
-
+      window.location.replace("./index.html");
     },
     addMember(){
       this.isNewMember=true;
@@ -94,7 +95,8 @@ var personRecordsApp = new Vue({
           console.error(err);
         })
         persons=null;
-        window.location.replace("http://localhost:8080/index.html");
+        console.log('reached here');
+        window.location.replace("./index.html");
       }
     },
     getAllCerts(){
@@ -105,14 +107,15 @@ var personRecordsApp = new Vue({
 
     //get all Certifications in user_cert table
     getMemberCerts(){
+      console.log('reached here');
       fetch('api/memberById/certs.php')
       .then(response => response.json())
-      .then(json => { personRecordsApp.assignedCerts = json;})
-      .then(this.setCurrentCerts());
+      .then(json => { personRecordsApp.assignedCerts = json; this.setCurrentCerts();}) //Addy changed to ensure sequential flow of execution
     },
 
     //find the right certs based on our user
     setCurrentCerts(){
+      console.log(this.assignedCerts);
       var paramIndex = document.location.href.lastIndexOf('=');
       var currentPersonId = document.location.href.substring(paramIndex+1);
       for(var cert of this.assignedCerts){
@@ -136,11 +139,27 @@ var personRecordsApp = new Vue({
           console.log(this.userNums);
         }
       }
+    },
+    addCertForPerson(){
+      this.currentUserCert.personId=this.currentPerson.personId;
+      console.log(this.currentUserCert);
+      fetch('api/memberById/postNewUserCert.php', {
+        method:'POST',
+        body: JSON.stringify(this.currentUserCert),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      .then( response => response.json() )
+      .catch( err => {
+        console.error('RECORD POST ERROR:');
+        console.error(err);
+      })
+      window.location.replace("./viewMember.html?id="+this.currentPerson.personId);
     }
   },
   created() {
     this.fetchPersons();
-    this.getMemberCerts();
     this.getAllCerts();
     this.getPhoneNums();
   }

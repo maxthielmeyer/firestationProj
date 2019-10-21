@@ -134,30 +134,27 @@
         </table>
         <br>
         <br>
-        <form id="addCert">
+        <form id="addCert" @submit.prevent="addCertForPerson">
           <h1 id ="addTitle"> Add Certification </h1>
           <div class="form-group">
             <label for="certDateIssued" id="label">Date Issued</label>
-            <input type="date" class="form-control" id="certDateIssued" requried/>
-
+            <input type="date" class="form-control" id="certDateIssued" v-model ="currentUserCert.renewedDate" requried/>
             <label for="certDateExpires" id="label">Expiry Date</label>
-            <input type="date" class="form-control" id="certDateExpires" required/>
+            <input type="date" class="form-control" id="certDateExpires" v-model ="currentUserCert.expDate" required/>
           </div>
           <label for="certTypeInput" id="label">Certification</label>
-          <select class="custom-select">
-            <option v-for="cert2 in allCerts" :value ="cert2.cName">{{cert2.cName}}</option>
+          <select class="custom-select" v-model ="currentUserCert.cName">
+            <option v-for="cert2 in allCerts" :value ="cert2.cName" >{{cert2.cName}}</option>
           </select>
           <input class="btn-dark" type="submit" value="Add">
         </form>
       </div>
-
-      </div>
-      </div>
-      <script src="js/buttons.js"> </script>
-      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-      <script src="js/memberDetails.app.js"></script>
-      <script src="jquery.js"></script>
-      <script src="parsley.min.js"></script>
-    </body>
-
-  </html>
+    </div>
+  </div>
+  <script src="js/buttons.js"> </script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/memberDetails.app.js"></script>
+  <script src="jquery.js"></script>
+  <script src="parsley.min.js"></script>
+</body>
+</html>

@@ -39,7 +39,7 @@ function export_table_to_csv(html, filename) {
 	}
 
     // Download CSV
-    download_csv(csv.join("\n"), filename);
+    download_csv(csv.join("\n"), "downloded_table.csv");
 }
 
 document.querySelector("button").addEventListener("click", function () {

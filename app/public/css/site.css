@@ -68,6 +68,12 @@ nav a:hover{
   border-bottom:solid;
   border-bottom-width: thin;
 }
+#reportPage{
+  background-color: darkgray;
+  text-align:center;
+  border-bottom:solid;
+  border-bottom-width: thin;
+}
 
 #certInfo{
   background-color: darkgray;
@@ -135,7 +141,7 @@ font-family:sans-serif;
 font-style:bold;
 }
 
-#certReporttbl td{
+/* #certReporttbl td{
 text-align:left;
 border:solid #ddd;
 border-bottom: solid #ddd;
@@ -153,7 +159,7 @@ border:solid;
 
 #certReporttbl{
   width:100%;
-}
+} */
 
 #tableHead{
   font-style:italic;

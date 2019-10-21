@@ -6,8 +6,8 @@ var certsApp = new Vue({
     allJoins: [],
     holdingMembers: [],
     //adding filtering features
-    filter: {
-    },
+    filterCert: '',
+    filterUsers: '',
     oldcName:'',
     certification:'',
     valid:''

@@ -26,34 +26,34 @@
           <div class="form-group">
             <div class="row">
               <label class="col-3">First name:</label>
-              <div class="col-2"><input class="personInfo" disabled type="text" name="firstName" v-model="currentPerson.firstName" required></div>
+              <div class="col-2"><input class="personInfo" disabled type="text" name="firstName" v-model="currentPerson.firstName" required data-parsley-validateString></div>
             </div>
           </div>
           <div class="form-group">
             <div class="row">
               <label class="col-3"> Last name:</label>
-              <div class="col-2"><input class="personInfo" disabled type="text" name="lastName" v-model="currentPerson.lastName" required></div>
+              <div class="col-2"><input class="personInfo" disabled type="text" name="lastName" v-model="currentPerson.lastName" required data-parsley-validateString></div>
             </div>
           </div>
 
           <div class="form-group">
             <div class="row">
               <label class="col-3"> Radio Number:</label>
-              <div class="col-2"><input class="personInfo" disabled type="text" name="radioNum" v-model="currentPerson.radioNum" required minlength="2" maxlength="2"></div>
+              <div class="col-2"><input class="personInfo" disabled type="text" name="radioNum" v-model="currentPerson.radioNum" required minlength="2" maxlength="2" data-parsley-validateNumber></div>
             </div>
           </div>
 
           <div class="form-group">
             <div class="row">
               <div class="col-3"> Station Number: </div>
-              <div class="col-2"><input class="personInfo" disabled type="text" name="stationNumber" v-model="currentPerson.stationNumber" required minlength="5" maxlength="5"></div>
+              <div class="col-2"><input class="personInfo" disabled type="text" name="stationNumber" v-model="currentPerson.stationNumber" required minlength="5" maxlength="5" data-parsley-validateNumber></div>
             </div>
           </div>
 
           <div class="form-group">
             <div class="row">
               <label class="col-3"> DOB: </label>
-              <div class="col-2"><input class="personInfo" disabled type="date" name="DOB" v-model="currentPerson.DOB" required minlength="10" maxlength="10"></div>
+              <div class="col-2"><input class="personInfo" disabled type="date" name="DOB" v-model="currentPerson.DOB" required minlength="10" maxlength="10" data-parsley-validateDate></div>
             </div>
           </div>
           <div class="form-group">
@@ -156,6 +156,8 @@
       <script src="js/buttons.js"> </script>
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
       <script src="js/memberDetails.app.js"></script>
+      <script src="jquery.js"></script>
+      <script src="parsley.min.js"></script>
     </body>
 
   </html>

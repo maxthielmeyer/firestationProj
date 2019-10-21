@@ -27,14 +27,14 @@
 
         <form action="/action_page.php">
           Certification
-          <select class="custom-select">
+          <select class="custom-select" v-model="filter.certification">
             <option value="CPR">CPR</option>
             <option value="FireRescue">Fire Rescue</option>
             <option value="FirstAid">FirstAid</option>
             <option value="all">All</option>
           </select>
           View
-          <select class="custom-select">
+          <select class="custom-select" v-model="filter.valid">
             <option value="valid">Valid</option>
             <option value="expired">Expired</option>
             <option value="all">All</option>
@@ -48,24 +48,6 @@
     <div class="row">
       <div class="col-2">
       </div>
-      <!-- filter through certification -->
-      <div class="filter">
-        <select v-model="filter.certification">
-          <option value="">(all)</option>
-          <option>CPR</option>
-          <option>Fire Rescue</option>
-          <option>First Aid</option>
-        </select>
-      </div>
-      <!-- filter through valid vs. invalid -->
-      <div class="filter">
-        <select v-model="filter.valid">
-          <option value="">(all)</option>
-          <option>Valid</option>
-          <option>Expired</option>
-        </select>
-      </div>
-
 
         <div class="col-8">
         <br>
@@ -78,7 +60,10 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-show>
+            <!-- need to work on persons.certificates part-->
+            <tr
+            v-show="filter.certification==''||filter.certification==persons.certificates"
+            v-show="filter.valid==''||filter.valid==persons.certificates">
               <td>Toddrick Rickson</td>
               <td>123123</td>
               <td>1/1/2024</td>

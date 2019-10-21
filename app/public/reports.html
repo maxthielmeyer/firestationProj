@@ -16,82 +16,80 @@
 <div id="secondBorder">
 </div>
 
-<body>
   <div class="container-fluid">
     <div class="row">
       <div class="col-2">
       </div>
-      <div class="col-12" id="memberInfo">
+      <div id="certInfo">
+      <div class="col-12">
         <h1 id="reportHeader"> Certification Reports </h1>
         <p> View detailed information about firefighters, badge numbers, and certification status.</p>
 
         <form action="/action_page.php">
           Certification
-          <select class="custom-select" v-model="filter.certification">
-            <option value="CPR">CPR</option>
-            <option value="FireRescue">Fire Rescue</option>
-            <option value="FirstAid">FirstAid</option>
-            <option value="all">All</option>
+
+          <select class="custom-select" v-model="filterCert">
+            <option v-for="cert in certs" v-bind:value="cert.cName">
+              {{ cert.cName }}
+            </option>
+            <option value="all"> All </option>
           </select>
-          View
-          <select class="custom-select" v-model="filter.valid">
-            <option value="valid">Valid</option>
-            <option value="expired">Expired</option>
-            <option value="all">All</option>
+          <span>Valid/Expired</span>
+
+
+          <select class="custom-select" v-model="filterUsers">
+            <option value="all"> All </option>
+            <option value=false> Valid </option>
+            <option value=true> Expired </option>
           </select>
-          <input type="submit" value="View Report" class="btn-dark">
+
         </form>
       </div>
       <div class="col-2">
       </div>
-    </div>
+
     <div class="row">
       <div class="col-2">
       </div>
-
         <div class="col-8">
         <br>
+
         <table class="table table-striped table-light table-hover table-bordered" id="certReporttbl">
           <thead class="thead-dark">
+            <tr>
               <th>Name</th>
-              <th>Badge Number</th>
+              <th>Radio Number</th>
+              <th>Certification</th>
               <th>Expiration Date</th>
               <th>Status</th>
             </tr>
           </thead>
           <tbody>
-            <!-- need to work on persons.certificates part-->
-            <tr
-            v-show="filter.certification==''||filter.certification==persons.certificates"
-            v-show="filter.valid==''||filter.valid==persons.certificates">
-              <td>Toddrick Rickson</td>
-              <td>123123</td>
-              <td>1/1/2024</td>
-              <td>Valid</td>
+            <tr v-for="join in allJoins">
+              <td v-if="((join.cName == filterCert || filterCert=='all') && (filterUsers == 'all' || expireCheck(join.expDate) == filterUsers))">{{join.firstName}} {{join.lastName}}</td>
+              <td v-if="((join.cName == filterCert || filterCert=='all') && (filterUsers == 'all' || expireCheck(join.expDate) == filterUsers))">{{join.radioNum}}</td>
+              <td v-if="((join.cName == filterCert || filterCert=='all') && (filterUsers == 'all' || expireCheck(join.expDate) == filterUsers))">{{join.cName}}</td>
+              <td v-if="((join.cName == filterCert || filterCert=='all') && (filterUsers == 'all' || expireCheck(join.expDate) == filterUsers))">{{join.expDate}}</td>
+              <td v-if="((join.cName == filterCert || filterCert=='all') && ((filterUsers != 'false')&&(expireCheck(join.expDate) == 'true')))">EXPIRED</td>
+              <td v-else-if="((join.cName == filterCert || filterCert=='all') && ((filterUsers != 'true') && (expireCheck(join.expDate) == 'false')))">VALID</td>
             </tr>
-            <tr>
-              <td>Greg Gregson</td>
-              <td>331312</td>
-              <td>1/1/2014</td>
-              <td>Expired</td>
-            </tr>
-            <tr>
-              <td>John Johnson</td>
-              <td>334232</td>
-              <td>1/1/2014</td>
-              <td>Expired</td>
-            </tr>
-          </tbody>
+        </tbody>
         </table>
+
+</div>
+
+<button onclick="export_table_to_csv()">Export HTML table to CSV file</button>
         <!-- credit: export_table_to_csv, https://codepen.io/malahovks/pen/gLxLWX -->
-        <button>Export HTML table to CSV file</button>
       </div>
       <div class="col-2">
       </div>
     </div>
   </div>
 
+
+
   <script src="js/export_table_to_csv.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/reportPage.app.js"></script>
 </body>
 </html>

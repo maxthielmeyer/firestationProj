@@ -11,7 +11,6 @@ var certsApp = new Vue({
     oldcName:'',
     certification:'',
     valid:''
-    }
   },
   methods: {
     fetchCerts() {

@@ -12,8 +12,8 @@ $stmt1 = $db1->prepare(
 );
 
 $stmt1->execute([
-  $_POST['personId'],
-  $_POST['phoneNum']
+  $_POST['phoneNum'],
+  $_POST['personId']
 ]);
 
 

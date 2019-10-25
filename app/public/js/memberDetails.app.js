@@ -11,7 +11,8 @@ var personRecordsApp = new Vue({
     userNums:[],
     currentUserCert:{},
     isNewMember: false,
-    addingNum:""
+    addingNum:"",
+    userNum:{}
   },
   methods: {
     fetchPersons() {
@@ -118,9 +119,12 @@ var personRecordsApp = new Vue({
     postNumber(personId){
       console.log(this.addingNum);
       console.log(personId);
+      this.userNum.phoneNum=this.addingNum;
+      this.userNum.personId=personId;
+      console.log(this.userNum);
       fetch('api/memberById/addPhone.php',{
         method:'POST',
-        body: JSON.stringify(personId, this.addingNum),
+        body: JSON.stringify(this.userNum),
         headers:{
           "Content-Type": "application/json; charset=utf-8"
         }

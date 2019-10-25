@@ -29,6 +29,11 @@ function export_table_to_csv(html, filename) {
 	var csv = [];
 	var rows = document.querySelectorAll("table tr");
 
+  var dt = new Date();
+  var dt1 = (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
+  var dt2 = dt1.toString();
+  var fileName = dt2 + "/" + "Certification_Report.csv";
+
     for (var i = 0; i < rows.length; i++) {
 		var row = [], cols = rows[i].querySelectorAll("td, th");
 
@@ -39,7 +44,7 @@ function export_table_to_csv(html, filename) {
 	}
 
     // Download CSV
-    download_csv(csv.join("\n"), "downloded_table.csv");
+    download_csv(csv.join("\n"), fileName);
 }
 
 document.querySelector("button").addEventListener("click", function () {

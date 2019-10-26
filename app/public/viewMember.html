@@ -40,14 +40,14 @@
 
           <div class="form-group">
             <div class="row">
-              <label class="col-3"> Radio Number:</label>
+              <label class="col-3"> Radio #:</label>
               <div class="col-2"><input class="personInfo" disabled type="text" name="radioNum" v-model="currentPerson.radioNum" required minlength="2" maxlength="2" data-parsley-validateNumber></div>
             </div>
           </div>
 
           <div class="form-group">
             <div class="row">
-              <div class="col-3"> Station Number: </div>
+              <div class="col-3"> Station #: </div>
               <div class="col-2"><input class="personInfo" disabled type="text" name="stationNumber" v-model="currentPerson.stationNumber" required minlength="5" maxlength="5" data-parsley-validateNumber></div>
             </div>
           </div>
@@ -92,7 +92,7 @@
 
           <div class="form-group" v-for="(num, index) in userNums">
             <div class="row">
-              <div class="col-3">Phone number {{++index}}</div>
+              <div class="col-3">Phone # {{++index}}</div>
               <div class="col-2"> <input class="personInfo" disabled type="text" name="number" v-model="num.phoneNum" required> </div>
                 <div class="col-5"><button class="deleteNumberButton" onClick="deletePhone(num)"> x </button></div>
             </div>
@@ -100,7 +100,7 @@
 
           <div class="form-group standard" id="addNum" style="display:none">
             <div class="row">
-            <div class="col-3">Add number: </div>
+            <div class="col-3">Add #: </div>
             <div class="col-2"> <input type="text" name="number" enabled v-model="addingNum"> </div>
             <div class="col-5"><button type="button" @click="postNumber(currentPerson.personId, addingNum)"> Submit </button></div>
           </div>

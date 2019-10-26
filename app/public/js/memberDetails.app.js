@@ -10,7 +10,9 @@ var personRecordsApp = new Vue({
     phoneNums: [],
     userNums:[],
     currentUserCert:{},
-    isNewMember: false
+    isNewMember: false,
+    addingNum:"",
+    userNum:{}
   },
   methods: {
     fetchPersons() {
@@ -99,6 +101,41 @@ var personRecordsApp = new Vue({
         window.location.replace("./index.html");
       }
     },
+    deletePhone(number){
+      console.log(number)
+      fetch('api/memberById/deletePhone.php',{
+        method:'POST',
+        body: JSON.stringify(number),
+        headers:{
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+        .then( response => response.json() )
+        .catch( err => {
+          console.error('RECORD POST ERROR:');
+          console.error(err);
+        })
+      },
+    postNumber(personId){
+      console.log(this.addingNum);
+      console.log(personId);
+      this.userNum.phoneNum=this.addingNum;
+      this.userNum.personId=personId;
+      console.log(this.userNum);
+      fetch('api/memberById/addPhone.php',{
+        method:'POST',
+        body: JSON.stringify(this.userNum),
+        headers:{
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+        .then( response => response.json() )
+        .catch( err => {
+          console.error('RECORD POST ERROR:');
+          console.error(err);
+        })
+      },
+
     getAllCerts(){
       fetch('api/certificates/index.php')
       .then(response => response.json())

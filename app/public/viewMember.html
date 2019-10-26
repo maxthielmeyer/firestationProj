@@ -5,6 +5,8 @@
   <title>My Page Title</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="css/site.css">
+  <script src="js/buttons.js"> </script>
+
 </head>
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
   <h1 class="navtitle"><a href="./index.html"> OCFR </a></h1> <!--Please match css Addy-->
@@ -65,11 +67,20 @@
               </div>
             </div>
           </div>
+          <div class="form-group">
+            <div class="row">
+              <label class="col-3"> Active? </label>
+              <div class="col-2">
+                Yes <input class="personInfo" disabled type="radio" id="active" value=1 v-model="currentPerson.isActive" required><br>
+                No <input class="personInfo" disabled type="radio" id="inactive" value=0 v-model="currentPerson.isActive">
+              </div>
+            </div>
+          </div>
           <h3> Contact Information </h3>
           <div class="form-group">
             <div class="row">
               <label class="col-3"> Address: </label>
-              <div class="col-2"><input class="personInfo" id="address" disabled type="text" name="address" v-model="currentPerson.address" required></div>
+              <div class="col-2"><textarea class="personInfo" id="address" disabled type="text" name="address" v-model="currentPerson.address" required></textarea></div>
             </div>
           </div>
           <div class="form-group">
@@ -78,22 +89,22 @@
               <div class="col-2"><input class="personInfo" disabled type="text" name="email" v-model="currentPerson.email" required></div>
             </div>
           </div>
-          <div class="form-group">
-            <div class="row">
-              <label class="col-3"> Activate? </label>
-              <div class="col-2">
-                Yes <input class="personInfo" disabled type="radio" id="active" value=1 v-model="currentPerson.isActive" required>
-                No <input class="personInfo" disabled type="radio" id="inactive" value=0 v-model="currentPerson.isActive">
-              </div>
-            </div>
-          </div>
+
           <div class="form-group" v-for="(num, index) in userNums">
             <div class="row">
               <div class="col-3">Phone number {{++index}}</div>
-              <div class="col-2"><input class="personInfo" disabled type="text" name="number" v-model="num.phoneNum" required></div>
-
+              <div class="col-2"> <input class="personInfo" disabled type="text" name="number" v-model="num.phoneNum" required> </div>
+                <div class="col-5"><button class="deleteNumberButton" onClick="deletePhone(num)"> x </button></div>
             </div>
           </div>
+
+          <div class="form-group standard" id="addNum" style="display:none">
+            <div class="row">
+            <div class="col-3">Add number: </div>
+            <div class="col-2"> <input type="text" name="number" enabled v-model="addingNum"> </div>
+            <div class="col-5"><button type="button" @click="postNumber(currentPerson.personId, addingNum)"> Submit </button></div>
+          </div>
+        </div>
           <br>
           <input class="btn-dark" id="submitButton" type="submit" onclick="cancelEdit()" value="Submit changes" style="display:none">
         </form>
@@ -101,6 +112,7 @@
         <!-- what if we have all three buttons on the same line? -->
         <button @click="addMember()" onclick="editInfo()" id="addButton"> Add New Record </button>
         <button onclick="editInfo()" id="editButton"> Edit Record </button>
+        <button onclick="addNum()"> Add Phone Number </button>
         <button onclick="cancelEdit()" id="cancelButton" style="display:none"> Cancel Edit </button>
         <br>
         <br>
@@ -151,10 +163,10 @@
       </div>
     </div>
   </div>
-  <script src="js/buttons.js"> </script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="js/memberDetails.app.js"></script>
   <script src="jquery.js"></script>
-  <script src="parsley.min.js"></script>
+  <script src="js/parsley.min.js"></script>
+
 </body>
 </html>

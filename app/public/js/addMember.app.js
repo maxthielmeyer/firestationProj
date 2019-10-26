@@ -1,20 +1,43 @@
-var personRecordsApp = new Vue({
+\var personRecordsApp = new Vue({
   el: '#memberInfo',
   data: {
-    persons: [],
     currentPerson: {},
-    gender:'',
-    assignedCerts: [],
-    userCerts: [],
-    allCerts: [],
-    phoneNums: [],
-    userNums:[],
-    currentUserCert:{},
-    isNewMember: false,
-    addingNum:"",
-    userNum:{}
+    warning: ""
   },
   methods: {
+    validateForm(){
+      this.warning = ""
+      if(!this.currentPerson.firstName){
+        this.warning = this.warning.concat(" First name is required.");
+      }
+      if(!this.currentPerson.lastName){
+        this.warning = this.warning.concat(" Last name is required.");
+      }
+      if(!this.currentPerson.radioNum){
+        this.warning = this.warning.concat(" Radio Number is required.");
+      }
+      if(!this.currentPerson.stationNumber){
+        this.warning = this.warning.concat(" Station Number is required.");
+      }
+      if(!this.currentPerson.DOB){
+        this.warning = this.warning.concat(" Date of Birth is required.");
+      }
+      if(!this.currentPerson.gender){
+        this.warning = this.warning.concat(" Gender is required.");
+      }
+      if(!this.currentPerson.isActive){
+        this.warning = this.warning.concat(" Active is required.");
+      }
+      if(!this.currentPerson.address){
+        this.warning = this.warning.concat(" Address is required.");
+      }
+      if(!this.currentPerson.email){
+        this.warning = this.warning.concat(" Email is required.");
+      }
+      if(this.warning.length > 0 ) alert(this.warning)
+      else this.savePerson()
+    },
+
     savePerson(){
       console.log(this.currentPerson.isActive);
         fetch('api/memberById/postNew.php', {

@@ -2,6 +2,7 @@ var addCertificateApp = new Vue({
   el: '#addCertForm',
   data: {
     currentCertificate: {},
+    message: ""
   },
   methods: {
     addCertificate(){

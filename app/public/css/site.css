@@ -133,7 +133,7 @@ nav a:hover{
 #certReporttbl th{
 border:solid #ddd;
 border-bottom:double #aaa;
-text-align:left;
+text-align:middle;
 font-weight:500;
 font-family:sans-serif;
 font-style:bold;
@@ -183,6 +183,7 @@ border:solid;
   font-weight: bold;
   font-size: 100%;
   color:black;
+  text-align:left;
 }
 
 body, html {
@@ -190,7 +191,17 @@ body, html {
 }
 
 .indexButton{
-  box-shadow:inset 0px 10px 13px -6px #8a8a8a;
+  color: orange;
+  width:100%;
+  font-family: sans-serif;
+  background:linear-gradient(to bottom, #000000 5%, #4d4d4d 100%);
+  font-size:20px;
+  padding: 10px;
+  text-decoration:none;
+  cursor:pointer;
+
+
+  /* box-shadow:inset 0px 10px 13px -6px #8a8a8a;
   	background:linear-gradient(to bottom, #000000 5%, #4d4d4d 100%);
   	background-color:#000000;
   	border-radius:14px;
@@ -199,10 +210,10 @@ body, html {
   	cursor:pointer;
   	color:white;
   	font-family:Arial;
-  	font-size:22px;
+  	font-size:18px;
   	font-weight:bold;
   	padding:24px 65px;
-  	text-decoration:none;
+  	text-decoration:none; */
 }
 
 .hero-image {

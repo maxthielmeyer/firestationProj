@@ -133,7 +133,7 @@ nav a:hover{
 #certReporttbl th{
 border:solid #ddd;
 border-bottom:double #aaa;
-text-align:left;
+text-align:middle;
 font-weight:500;
 font-family:sans-serif;
 font-style:bold;

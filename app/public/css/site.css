@@ -259,3 +259,7 @@ padding-bottom:8%;
 .certBox{
   margin-bottom:5px;
 }
+
+.container-fluid{
+  width:75%;
+}

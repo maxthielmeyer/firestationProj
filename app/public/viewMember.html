@@ -94,7 +94,7 @@
             <div class="row">
               <div class="col-3">Phone number {{++index}}</div>
               <div class="col-2"> <input class="personInfo" disabled type="text" name="number" v-model="num.phoneNum" required> </div>
-                <div class="col-5"><button class="deleteNumberButton" type="button" @click="deletePhone(num)"> x </button></div>
+                <div class="col-5"><button class="deleteNumberButton" onClick="deletePhone(num)"> x </button></div>
             </div>
           </div>
 
@@ -165,7 +165,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="js/memberDetails.app.js"></script>
-  <!-- <script src="jquery.js"></script> -->
+  <script src="jquery.js"></script>
   <script src="js/parsley.min.js"></script>
 
 </body>

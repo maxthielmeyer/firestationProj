@@ -1,4 +1,4 @@
-\var personRecordsApp = new Vue({
+var personRecordsApp = new Vue({
   el: '#memberInfo',
   data: {
     currentPerson: {},

@@ -34,8 +34,7 @@ var personRecordsApp = new Vue({
 
     savePerson(){
       console.log(this.currentPerson.isActive);
-      if(!this.isNewMember){
-        fetch('api/memberById/post.php', {
+        fetch('api/memberById/updateMember.php', {
           method:'POST',
           body: JSON.stringify(this.currentPerson),
           headers: {
@@ -47,40 +46,9 @@ var personRecordsApp = new Vue({
           console.error('RECORD POST ERROR:');
           console.error(err);
         })
-      }
-      else{
-        fetch('api/memberById/postNew.php', {
-          method:'POST',
-          body: JSON.stringify(this.currentPerson),
-          headers: {
-            "Content-Type": "application/json; charset=utf-8"
-          }
-        })
-        .then( response => response.json() )
-        .catch( err => {
-          console.error('RECORD POST ERROR:');
-          console.error(err);
-        })
-      }
       window.location.replace("./index.html");
     },
-    addMember(){
-      this.isNewMember=true;
-      this.resetCurrentPerson();
-    },
-    resetCurrentPerson(){
-      this.currentPerson = {
-        firstName: '',
-        lastName: '',
-        radioNum: '',
-        stationNumber: '',
-        personId: '',
-        DOB: '',
-        gender: '',
-        address: '',
-        email: '',
-      }
-    },
+
     deleteMember(){
       var result = confirm("Are you sure you want to delete?");
       if(result){

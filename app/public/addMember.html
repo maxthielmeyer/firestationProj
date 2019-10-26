@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>My Page Title</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/buttons.js"> </script>
+
+</head>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <h1 class="navtitle"><a href="./index.html"> OCFR </a></h1> <!--Please match css Addy-->
+  <a class="nav-link" href="./index.html">Members</a>
+  <a class="nav-link" href="./certs.html">Certifications</a>
+  <a class="nav-link" href="./reports.html">Reports</a>
+</nav>
+
+<div id="secondBorder">
+</div>
+<body>
+
+  <div class="container-fluid" id="memberInfo">
+    <div class="row">
+      <div class="col-3"> </div>
+      <div class="col-6">
+        <br>
+        <h1> {{currentPerson.firstName}} {{currentPerson.lastName}} </h1>
+        <form @submit.prevent="savePerson" id="editForm">
+          <div class="form-group">
+            <div class="row">
+              <label class="col-3">First name:</label>
+              <div class="col-2"><input class="personInfo"   type="text" name="firstName" v-model="currentPerson.firstName" required data-parsley-validateString></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <label class="col-3"> Last name:</label>
+              <div class="col-2"><input class="personInfo"   type="text" name="lastName" v-model="currentPerson.lastName" required data-parsley-validateString></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-3"> Radio Number:</label>
+              <div class="col-2"><input class="personInfo"   type="text" name="radioNum" v-model="currentPerson.radioNum" required minlength="2" maxlength="2" data-parsley-validateNumber></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-3"> Station Number: </div>
+              <div class="col-2"><input class="personInfo"   type="text" name="stationNumber" v-model="currentPerson.stationNumber" required minlength="5" maxlength="5" data-parsley-validateNumber></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-3"> DOB: </label>
+              <div class="col-2"><input class="personInfo"   type="date" name="DOB" v-model="currentPerson.DOB" required minlength="10" maxlength="10" data-parsley-validateDate></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <label class="col-3"> Gender: </label>
+              <div class="col-2">
+                M <input class="personInfo"   type="radio" id="male" value="M" v-model="currentPerson.gender" required>
+                F <input class="personInfo"   type="radio" id="female" value="F" v-model="currentPerson.gender">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <label class="col-3"> Active? </label>
+              <div class="col-2">
+                Yes <input class="personInfo"   type="radio" id="active" value=1 v-model="currentPerson.isActive" required><br>
+                No <input class="personInfo"   type="radio" id="inactive" value=0 v-model="currentPerson.isActive">
+              </div>
+            </div>
+          </div>
+          <h3> Contact Information </h3>
+          <div class="form-group">
+            <div class="row">
+              <label class="col-3"> Address: </label>
+              <div class="col-2"><textarea class="personInfo" id="address"   type="text" name="address" v-model="currentPerson.address" required></textarea></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-3"> Email:</div>
+              <div class="col-2"><input class="personInfo"   type="text" name="email" v-model="currentPerson.email" required></div>
+            </div>
+          </div>
+
+          <div class="form-group" v-for="(num, index) in userNums">
+            <div class="row">
+              <div class="col-3">Phone number {{++index}}</div>
+              <div class="col-2"> <input class="personInfo"   type="text" name="number" v-model="num.phoneNum" required> </div>
+                <div class="col-5"><button class="deleteNumberButton" onClick="deletePhone(num)"> x </button></div>
+            </div>
+          </div>
+
+          
+          <br>
+          <input class="btn-dark" id="submitButton" type="submit" onclick="cancelEdit()" value="Submit changes" style="display:none">
+        </form>
+        <br>
+        <!-- what if we have all three buttons on the same line? -->
+        <button @click="savePerson()" id="addButton"> Add Record </button>
+        <button onclick="cancelEdit()" id="cancelButton" style="display:none"> Cancel Edit </button>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/addMember.app.js"></script>
+  <script src="jquery.js"></script>
+  <script src="js/parsley.min.js"></script>
+
+</body>
+</html>

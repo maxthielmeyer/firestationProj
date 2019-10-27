@@ -41,12 +41,11 @@ var personRecordsApp = new Vue({
             "Content-Type": "application/json; charset=utf-8"
           }
         })
-        .then( response => response.json() )
+        .then( response => response.json();window.location.replace("./index.html");  )
         .catch( err => {
           console.error('RECORD POST ERROR:');
           console.error(err);
         })
-      window.location.replace("./index.html");
     },
 
     deleteMember(){

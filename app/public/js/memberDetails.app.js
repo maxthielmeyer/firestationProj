@@ -41,7 +41,7 @@ var personRecordsApp = new Vue({
             "Content-Type": "application/json; charset=utf-8"
           }
         })
-        .then( response => response.json();window.location.replace("./index.html");  )
+        .then( response => response.json())
         .catch( err => {
           console.error('RECORD POST ERROR:');
           console.error(err);
@@ -58,14 +58,14 @@ var personRecordsApp = new Vue({
             "Content-Type": "application/json; charset=utf-8"
           }
         })
-        .then( response => response.json() )
+        .then( response => {response.json();  window.location.replace("./index.html")})
         .catch( err => {
           console.error('RECORD POST ERROR:');
           console.error(err);
         })
         persons=null;
         console.log('reached here');
-        window.location.replace("./index.html");
+
       }
     },
     deletePhone(number){
